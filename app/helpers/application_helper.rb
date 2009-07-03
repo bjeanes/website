@@ -4,6 +4,10 @@ module ApplicationHelper
     @author ||= Struct.new(:name, :email).new(config[:author][:name], config[:author][:email])
   end
   
+  def description
+    config[:description]
+  end
+  
   def meta_keyword_tags
     Tag.all(:limit => 5, :order => 'taggings_count DESC').map(&:name).join(',')
   end
