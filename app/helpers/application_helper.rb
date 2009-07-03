@@ -1,7 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def author
-    Struct.new(:name, :email).new(config[:author][:name], config[:author][:email])
+    @author ||= Struct.new(:name, :email).new(config[:author][:name], config[:author][:email])
+  end
+  
+  def meta_keyword_tags
+    Tag.all(:limit => 5, :order => 'taggings_count DESC').map(&:name).join(',')
   end
 
   def open_id_delegation_link_tags(server, delegate)
