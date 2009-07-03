@@ -1,0 +1,1 @@
+require 'coderay/for_redcloth'
