@@ -1,11 +1,11 @@
 atom_feed(
-  :url         => formatted_posts_path(:tag => @tag, :format => 'atom', :only_path => false), 
+  :url         => 'http://feeds.feedburner.com/begenius', 
   :root_url    => posts_path(:tag => @tag, :only_path => false),
   :schema_date => '2008'
 ) do |feed|
   feed.title     posts_title(@tag)
   feed.updated   @posts.empty? ? Time.now.utc : @posts.collect(&:edited_at).max
-  feed.generator "Enki", "uri" => "http://enkiblog.com"
+  feed.generator "Enki-based", "uri" => "http://github.com/bjeanes/website"
 
   feed.author do |xml|
     xml.name  author.name
