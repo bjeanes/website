@@ -1,3 +1,5 @@
+/* @override http://bjeanes.com/stylesheets/coderay.css?1247109028 */
+
 /* CODERAY */
 .CodeRay {
   background-color: #f8f8f8;
@@ -6,7 +8,7 @@
   color: #100;
   margin-bottom: 1em;
 }
-.CodeRay pre { margin: 0px; font-size: 12px }
+.CodeRay pre { margin: 0px; font-size: 12px}
 
 div.CodeRay { }
 
@@ -22,7 +24,7 @@ table.CodeRay td { padding: 2px 4px; vertical-align: top }
 }
 .CodeRay .line_numbers tt { font-weight: bold }
 .CodeRay .no { padding: 0px 4px }
-.CodeRay .code { width: 100% }
+.CodeRay .code { width: 100%; max-width:50em; }
 
 ol.CodeRay { font-size: 10pt }
 ol.CodeRay li { white-space: pre }
