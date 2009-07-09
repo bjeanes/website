@@ -7,7 +7,14 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.atom { render :layout => false }
+      format.atom do
+        if params[:feedburner] == 'true'
+          render :layout => false
+        else
+          headers["Status"] = "301 Moved Permanently"
+          redirect_to 'http://feeds.feedburner.com/begenius'
+        end
+      end
     end
   end
 
