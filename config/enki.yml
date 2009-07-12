@@ -1,6 +1,6 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
-title:       Bodaniel Jeanes
+title:       Be Genius
 url:         http://bjeanes.com
 description: "Bodaniel Jeanes is a 22-year old Ruby developer living in Brisbane, Austalia. He is a big fan of open source code and good music."
 author: 

@@ -2,14 +2,12 @@
 <% content_for(:head)       do %><%= auto_discovery_link_tag(:atom, 'http://feeds.feedburner.com/begenius') %><% end -%>
 
 <% if @posts.empty? -%>
-	<p>There are no posts yet.</p>
+	<article class="no-posts">There are no posts yet.</article>
 <% else -%>
 	<% @posts.each do |post| -%>
-	<div class="post post-<%= post.id %>">
 	  <%= render :partial => 'post', :locals => {:post => post} %>
-	</div>
 	<% end -%>
-  <% if more_content? -%>
-    <div class="related">Looking for more? Head on over to the <%= link_to("archives", archives_path) %>.</div>
+  <% if false && more_content? -%>
+    <article class="related">Looking for more? Head on over to the <%= link_to("archives", archives_path) %>.</div>
   <% end -%>
 <% end -%>

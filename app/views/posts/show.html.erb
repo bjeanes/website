@@ -2,11 +2,11 @@
   <%= javascript_include_tag 'common' %>
   <%= javascript_include_tag 'live-comment-preview' %>
 <% end -%>
-<% content_for(:page_title) do -%>
-<%=h post_title(@post) -%>
-<% end -%>
+<% content_for(:page_title) { h(post_title(@post)) } -%>
+
 <%= render :partial => 'posts/post', :locals => {:post => @post} %>
-<ol class="commentlist">
+
+<!-- <ol class="commentlist">
   <% @post.approved_comments.each do |comment| -%>
   <li<%= cycle ' class="alt"', '' %> id="comment-<%= comment.id %>">
     <%= render :partial => 'comments/comment', :locals => {:comment => comment} %>
@@ -31,4 +31,4 @@
     <p><%= form.text_area 'body' %><br /><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
     <p><%= submit_tag "Add Comment" %></p>
   </div>
-<% end -%>
+<% end -%> -->
