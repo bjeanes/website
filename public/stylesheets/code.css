@@ -1,0 +1,73 @@
+code pre .String {
+   color: #A5C261;
+}
+code pre .Constant {
+   color: #6FAEBE;
+}
+code pre .Source {
+/*   background-color: #232323;*/
+   color: #FBFCFF;
+}
+code pre .line-numbers {
+   background-color: #5A647E;
+   color: #FFFFFF;
+}
+code pre .Variable {
+   color: #5F9FFF;
+}
+code pre .DiffHeader {
+   background-color: #2F33AB;
+}
+code pre .DiffRemove {
+   background-color: #660000;
+   color: #E6E1DC;
+}
+code pre .DiffAdd {
+   background-color: #144212;
+   color: #E6E1DC;
+}
+code pre .Number {
+   color: #8FAAC2;
+}
+code pre .StringInterpolation {
+   color: #519F50;
+}
+code pre .FunctionDefinition {
+   color: #FFC66D;
+}
+code pre .MarkupTag {
+   color: #E8BF6A;
+}
+code pre .LibraryConstant {
+   color: #A5C261;
+}
+code pre .ConstantOtherVariable {
+   color: #DA4939;
+}
+code pre .LibraryFunction {
+   color: #DA4939;
+}
+code pre .Keyword {
+   color: #CC7833;
+}
+code pre .ConstantBuiltIn {
+   color: #6294BE;
+}
+code pre {
+   background-color: #2B2B2B;
+   color: #E6E1DC;
+}
+code pre .Invalid {
+   background-color: #990000;
+   color: #FFFFFF;
+}
+code pre .LibraryType {
+   color: #6E9CBE;
+}
+code pre .ClassDefinition {
+   color: #DA7E76;
+}
+code pre .Comment {
+   color: #9D9393;
+   font-style: italic;
+}

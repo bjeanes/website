@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
   config.gem "RedCloth", :lib => "redcloth", :version => "~> 4.0"
   config.gem "ruby-openid", :lib => "openid", :version => "~> 2.1.0"
   config.gem "chronic", :version => "~> 0.2.0"
-  config.gem "coderay", :version => "~> 0.8.0"
+  config.gem "bjeanes-ultraviolet", :version => "0.10.3", :lib => "uv"
   config.gem "lesstile", :version => "~> 0.3"
   config.gem "mislav-will_paginate", :lib => "will_paginate", :version => "~> 2.3", :github => 'http://gems.github.com'
 
