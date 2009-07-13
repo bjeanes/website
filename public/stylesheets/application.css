@@ -303,7 +303,9 @@ body > article {
 
     body > article table > caption {
       color: #2E2E2E;
-      font-size: 200%;
+      font-size: 18px;
+      padding-right:5px;
+      line-height: 12px;
       text-align: right;
       text-shadow: 1px 0px white;
     }
@@ -351,16 +353,6 @@ body > article {
       body > article table td pre {
         padding-left: 20px;
         overflow-x: auto;
-      }
-      
-      body > article table td pre::selection,
-      body > article table td pre ::selection {
-        background-color: black;
-      }
-      
-      body > article table td pre::-moz-selection,
-      body > article table td pre ::-moz-selection {
-        background-color: black;
       }
     
     /*************************** </CODE FORMATTING> ****************************/

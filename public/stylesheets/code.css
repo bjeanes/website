@@ -1,73 +1,83 @@
-code pre .String {
+code .String {
    color: #A5C261;
 }
-code pre .Constant {
+code .Constant {
    color: #6FAEBE;
 }
-code pre .Source {
-/*   background-color: #232323;*/
+code .Source {
    color: #FBFCFF;
 }
-code pre .line-numbers {
+code .line-numbers {
    background-color: #5A647E;
    color: #FFFFFF;
 }
-code pre .Variable {
+code .Variable {
    color: #5F9FFF;
 }
-code pre .DiffHeader {
+code .DiffHeader {
    background-color: #2F33AB;
 }
-code pre .DiffRemove {
+code .DiffRemove {
    background-color: #660000;
    color: #E6E1DC;
 }
-code pre .DiffAdd {
+code .DiffAdd {
    background-color: #144212;
    color: #E6E1DC;
 }
-code pre .Number {
+code .Number {
    color: #8FAAC2;
 }
-code pre .StringInterpolation {
+code .StringInterpolation {
    color: #519F50;
 }
-code pre .FunctionDefinition {
+code .FunctionDefinition {
    color: #FFC66D;
 }
-code pre .MarkupTag {
+code .MarkupTag {
    color: #E8BF6A;
 }
-code pre .LibraryConstant {
+code .LibraryConstant {
    color: #A5C261;
 }
-code pre .ConstantOtherVariable {
+code .ConstantOtherVariable {
    color: #DA4939;
 }
-code pre .LibraryFunction {
+code .LibraryFunction {
    color: #DA4939;
 }
-code pre .Keyword {
+code .Keyword {
    color: #CC7833;
 }
-code pre .ConstantBuiltIn {
+code .ConstantBuiltIn {
    color: #6294BE;
 }
 code pre, p code {
-   background-color: #2B2B2B;
+/*   background-color: #2B2B2B;*/
+   background-color: rgba(43,43,43,0.95);
    color: #E6E1DC;
 }
-code pre .Invalid {
+code .Invalid {
    background-color: #990000;
    color: #FFFFFF;
 }
-code pre .LibraryType {
+code .LibraryType {
    color: #6E9CBE;
 }
-code pre .ClassDefinition {
+code .ClassDefinition {
    color: #DA7E76;
 }
-code pre .Comment {
+code .Comment {
    color: #9D9393;
    font-style: italic;
+}
+
+code::selection,
+code ::selection {
+  background-color: black;
+}
+
+code::-moz-selection,
+code ::-moz-selection {
+  background-color: black;
 }
