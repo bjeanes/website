@@ -108,11 +108,11 @@ body {
 }
 
 #recent-comments ul ul li:after {
-	content: ", ";
+  content: ", ";
 }
-		
+    
 #recent-comments ul ul li.last:after {
-	content: "";
+  content: "";
 }
 
 #recent-comments .count {

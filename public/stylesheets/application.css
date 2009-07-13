@@ -1,3 +1,4 @@
+/*************************** <A FEW RESET STYLES> **************************/
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -8,7 +9,7 @@
 html, body,
 header, footer,
 article, section,
-aside, nav, a,
+aside, nav, a, ol,
 ul, li, h1, h2, 
 h3, h4, h5, h6,
 code, pre, th, 
@@ -25,11 +26,15 @@ aside, nav {
 
 abbr { border-bottom: none; }
 
+/*************************** </A FEW RESET STYLES> **************************/
+
 body {
   font-family: Verdana, sans-serif;
   background: #CECECE url(/images/background.png) repeat scroll 0 0;
 }
 
+
+/******************************* <PAGE HEADER> ******************************/
 body > header {
   position: relative;
   height: 150px;
@@ -132,14 +137,24 @@ body > header {
     color: #000;
     text-shadow: none;
   }
+  
+/******************************* </PAGE HEADER> *******************************/
+
+/******************************* <PAGE SIDEBAR> *******************************/
 
 body > details {
   display:block;
   position: absolute;
-  width: 300px;
+  width: 250px;
   height: 200px;
   left: 720px;
 }
+
+  body > details input {
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
 
   body > details > img,
   body > details > p,
@@ -176,12 +191,20 @@ body > details {
         text-decoration: none;
         border-bottom: 1px dotted black;
       }
- 
+      
+/******************************* </PAGE SIDEBAR> *******************************/
+
+/******************************* <MAIN CONTENT> ********************************/
 body > article {
   position: relative;
   text-align:justify;
   background-color: rgba(246, 244, 243, 0.6);
 }
+
+  body > article > header ul li {
+    list-style:none;
+    display: inline;
+  }
 
   body > article > aside {
     position: absolute;
@@ -206,8 +229,8 @@ body > article {
     }
     
     body > article > aside time a * {
-  		line-height:1.2em;
-	}
+      line-height:1.2em;
+    }
 
     body > article > aside time abbr,
     body > article > aside time sup,
@@ -240,10 +263,6 @@ body > article {
       bottom: 3px;
       width:100%;
     }
-      
-  body > article > h1 {
-    margin-bottom: 40px;
-  }
 
   body > article h1,
   body > article h2,
@@ -259,6 +278,8 @@ body > article {
   body > article h6 a {
     color: #5c2a0d;
     text-decoration: none;
+    line-height: 1.2em;
+    text-align: left;
   }
   
   body > article blockquote {
@@ -266,6 +287,8 @@ body > article {
     padding-left: 1em;
   }
   
+  
+  /**************************** <CODE FORMATTING> ****************************/
   body > article table {
     position: relative;
     table-layout:fixed;
@@ -331,6 +354,12 @@ body > article {
       body > article table td pre ::-moz-selection {
         background-color: black;
       }
+    
+    /*************************** </CODE FORMATTING> ****************************/
+    
+      
+/******************************* </MAIN CONTENT> *******************************/
+
 
 body > article,
 body > footer {
