@@ -20,4 +20,44 @@
   <section>
     <%= post.body_html.untaint %>
   </section>
+  
+  <% if action_name == 'show' %>
+    <section>
+      <h2 id="comments">Comments</h2>
+      
+      <ol>
+        <% @post.approved_comments.each do |comment| -%>
+          <li id="comment-<%= comment.id %>">
+            <%= render :partial => 'comments/comment', :locals => {:comment => comment} %>
+          </li>
+        <% end -%>
+      </ol>
+      
+      <% unless @comment.errors.empty? -%>
+        <div class="errors">
+          <h3>Comment not added!</h3>
+          <ul>
+            <% @comment.errors.sort_by(&:first).each do |error| -%>
+              <li><%= format_comment_error(error) %></li>
+            <% end -%>  
+          </ul>
+        </div>  
+      <% end -%>
+      
+      <% form_for([@post, @comment]) do |form| -%>
+        <div>
+          <p>
+            <label for="comment_author">
+              Name or <a href="http://openidexplained.com/">OpenID</a>:
+            </label>
+            <%= form.text_field 'author' %>
+          </p>
+          <p>
+            <%= form.text_area 'body' %>
+          </p>
+          <p><%= submit_tag "Add Comment" %></p>
+        </div>
+      <% end -%>
+    </section>
+  <% end %>
 </article>
