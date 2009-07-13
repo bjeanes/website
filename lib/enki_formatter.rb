@@ -19,6 +19,7 @@ class EnkiFormatter
 
             lines = (1...(code.split(/\n/).size)).to_a.join("\n")
           
+            # TODO redo this without tables but stil have line numbers not selectable
             "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>"
         }
       )
