@@ -1,4 +1,2 @@
-<% content_for(:page_title) do -%>
-<%=h page_title(@page) -%>
-<% end -%>
+<% content_for(:page_title) { h(page_title(@page)) } -%>
 <%= render :partial => 'pages/page', :locals => {:page => @page} %>

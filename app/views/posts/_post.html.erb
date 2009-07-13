@@ -1,22 +1,23 @@
 <article>
+  <header>
+    <h1><%= link_to(post.title, post_path(post), :rel => "bookmark") %></h1>
+    <details>
+      <ul>
+        <li><%= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments')) %></li>
+        <% unless post.tags.empty? -%>
+          <li>tagged with <%= linked_tag_list(post.tags) %></li>
+        <% end -%>
+      </ul>
+    </details>
+  </header>
+  
   <aside>
     <time datetime="<%= post.published_at.xmlschema %>">
       <%= link_to(post.published_at.to_s(:html), post_path(post), :rel => "bookmark") %>
     </time>
   </aside>
-  
-    <h1><%= link_to(post.title, post_path(post), :rel => "bookmark") %></h1>
 
   <section>
     <%= post.body_html.untaint %>
   </section>
-  
-  <footer>
-    <ul>
-      <li class="comments"><%= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments')) %></li>
-      <% unless post.tags.empty? -%>
-      <li class="tags">Tagged <%= linked_tag_list(post.tags) %></li>
-      <% end -%>
-    </ul>
-  </footer>
 </article>

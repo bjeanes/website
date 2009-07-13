@@ -1,1 +1,9 @@
-<%= page.body_html.untaint %>
+<article>
+  <h1><%= link_to page.title, page_path(page), :rel => "bookmark" %></h1>
+
+  <section>
+    <%= page.body_html.untaint %>
+  </section>
+</article>
+
+

@@ -6,7 +6,7 @@
 
 <%= render :partial => 'posts/post', :locals => {:post => @post} %>
 
-<!-- <ol class="commentlist">
+<ol class="commentlist">
   <% @post.approved_comments.each do |comment| -%>
   <li<%= cycle ' class="alt"', '' %> id="comment-<%= comment.id %>">
     <%= render :partial => 'comments/comment', :locals => {:comment => comment} %>
@@ -31,4 +31,4 @@
     <p><%= form.text_area 'body' %><br /><small>(<a href="http://lesstile.rubyforge.org">lesstile enabled</a> - surround code blocks with ---)</small></p>
     <p><%= submit_tag "Add Comment" %></p>
   </div>
-<% end -%> -->
+<% end -%>
