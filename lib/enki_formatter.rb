@@ -6,29 +6,30 @@ class EnkiFormatter
       Lesstile.format_as_xhtml(
         text,
         :text_formatter => lambda { |text| RedCloth.new(CGI::unescapeHTML(text)).to_html },
-        :code_formatter => lambda { |code, lang|
-            lang = lang.to_s.downcase
-          
-            begin
-              code = highlight_code(code, lang)
-              code = code.sub(/\A<pre class="[a-zA-Z_-]+">/,%Q[<code lang="#{lang}"><pre>])
-              code = code.sub(/<\/pre>\Z/,'</pre></code>')
-            rescue
-              code = %Q{<code lang="#{lang}"><pre>#{code}</pre></code>}
-            end
-
-            lines = (1...(code.split(/\n/).size)).to_a.join("\n")
-          
-            # TODO redo this without tables but stil have line numbers not selectable
-            "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>"
-        }
-      )
+        :code_formatter => CodeFormatter)
     end
     
     def highlight_code(code, lang)
       Uv.parse(CGI::unescapeHTML(code), "xhtml", lang.to_s.downcase, false, "railscasts")
     end
   end
+  
+  CodeFormatter = lambda { |code, lang|
+      lang = lang.to_s.downcase
+    
+      begin
+        code = highlight_code(code, lang)
+        code = code.sub(/\A<pre class="[a-zA-Z_-]+">/,%Q[<code lang="#{lang}"><pre>])
+        code = code.sub(/<\/pre>\Z/,'</pre></code>')
+      rescue
+        code = %Q{<code lang="#{lang}"><pre>#{code}</pre></code>}
+      end
+
+      lines = (1...(code.split(/\n/).size)).to_a.join("\n")
+    
+      # TODO redo this without tables but stil have line numbers not selectable
+      "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>"
+  }
   
   # Inspired by CodeRay.for_redcloth
   module InlineCodeFormatter
