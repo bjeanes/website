@@ -25,9 +25,11 @@
       
       <nav>
         <ul>
-          <% page_links_for_navigation.each do |link| -%>
-            <li><%= link_to(h(link.name), link.url, :rel => 'current') %></li>
-          <% end -%>
+          <% tabs do |tab| %>
+            <% page_links_for_navigation.each do |link| -%>
+              <%= tab.send(link.slug, link.name, link.url) %>
+            <% end -%>
+          <% end %>
         </ul>
       </nav>
     </header>
