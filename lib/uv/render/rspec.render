@@ -1,0 +1,87 @@
+--- 
+scopeName: source.ruby.rspec
+name: RSpec
+keyEquivalent: ^~R
+repository: 
+  pending: 
+    name: meta.rspec.pending
+    captures: 
+      "1": 
+        name: keyword.other.rspec.pending
+      "2": 
+        name: string.ruby
+    match: ^\s*(it|specify)\s+(.*[^do])\s*$
+  example: 
+    name: meta.rspec.example
+    begin: ^\s*(it|specify)\b
+    endCaptures: 
+      "1": 
+        name: keyword.control.ruby.start-block
+    beginCaptures: 
+      "1": 
+        name: keyword.other.rspec.example
+    end: \b(do)\s*$
+    patterns: 
+    - include: source.ruby
+  single-line-example: 
+    captures: 
+      "1": 
+        name: keyword.other.rspec.example
+    match: ^\s*(it|specify)\s*{
+  behaviour: 
+    name: meta.rspec.behaviour
+    begin: ^\s*(describe|context)\b
+    endCaptures: 
+      "1": 
+        name: keyword.control.ruby.start-block
+    beginCaptures: 
+      "1": 
+        name: keyword.other.rspec.behaviour
+    end: \b(do)\s*$
+    patterns: 
+    - include: source.ruby
+uuid: 923F0A10-96B9-4792-99A4-94FEF66E0B8C
+patterns: 
+- name: keyword.other.rspec
+  match: (?<!\.)\b(before|after)\b(?![?!])
+- include: "#behaviour"
+- include: "#single-line-example"
+- include: "#pending"
+- include: "#example"
+- include: source.ruby
+foldingStartMarker: "(?x)^\n\
+  \t    (\\s*+\n\
+  \t        (module|class|def\n\
+  \t        |unless|if\n\
+  \t        |case\n\
+  \t        |begin\n\
+  \t        |for|while|until\n\
+  \t\t\t |^=begin\n\
+  \t        |(  \"(\\\\.|[^\"])*+\"          # eat a double quoted string\n\
+  \t         | '(\\\\.|[^'])*+'        # eat a single quoted string\n\
+  \t         |   [^#\"']                # eat all but comments and strings\n\
+  \t         )*\n\
+  \t         (                        \\s   (do|begin|case)\n\
+  \t         | (?<!\\$)[-+=&|*/~%^<>~] \\s*+ (if|unless)\n\
+  \t         )\n\
+  \t        )\\b\n\
+  \t        (?! [^;]*+ ; .*? \\bend\\b )\n\
+  \t    |(  \"(\\\\.|[^\"])*+\"              # eat a double quoted string\n\
+  \t     | '(\\\\.|[^'])*+'            # eat a single quoted string\n\
+  \t     |   [^#\"']                    # eat all but comments and strings\n\
+  \t     )*\n\
+  \t     ( \\{ (?!  [^}]*+ \\} )\n\
+  \t     | \\[ (?! [^\\]]*+ \\] )\n\
+  \t     )\n\
+  \t    ).*$\n\
+  \t|   [#] .*? \\(fold\\) \\s*+ $         # Sune\xE2\x80\x99s special marker\n\
+  \t"
+foldingStopMarker: "(?x)\n\
+  \t\t(   (^|;) \\s*+ end   \\s*+ ([#].*)? $\n\
+  \t\t|   (^|;) \\s*+ end \\. .* $\n\
+  \t\t|   ^     \\s*+ [}\\]] \\s*+ ([#].*)? $\n\
+  \t\t|   [#] .*? \\(end\\) \\s*+ $    # Sune\xE2\x80\x99s special marker\n\
+  \t\t|   ^=end\n\
+  \t\t)"
+fileTypes: 
+- spec.rb

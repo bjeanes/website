@@ -1,0 +1,9 @@
+--- 
+scopeName: source.ruby.rails.rjs
+name: Ruby on Rails (RJS)
+keyEquivalent: ^~R
+uuid: A6AE60CD-18CA-4474-BE7A-5255BC3EF083
+patterns: 
+- include: source.ruby
+fileTypes: 
+- rjs

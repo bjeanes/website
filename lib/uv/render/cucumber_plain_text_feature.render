@@ -1,0 +1,68 @@
+--- 
+"\xEF\xAC\x81rstLineMatch": "Arwedd|Caracter\xC3\xADstica|Egenskab|Egenskap|Feature|Fitur|Fonctionnalit\xC3\xA9|Functionalitate|Functionaliteit|Func\xC8\x9Bionalitate|Funktionalit\xC3\xA4t|Funzionalit\xC3\xA0|OH HAI|Omadus|Ominaisuus|S\xC4\x85vyb\xC4\x97|W\xC5\x82a\xC5\x9Bciwo\xC5\x9B\xC4\x87|\xD0\xA4\xD1\x83\xD0\xBD\xD0\xBA\xD1\x86\xD0\xB8\xD0\xBE\xD0\xBD\xD0\xB0\xD0\xBB|\xD8\xAE\xD8\xA7\xD8\xB5\xD9\x8A\xD8\xA9|\xE3\x83\x95\xE3\x82\xA3\xE3\x83\xBC\xE3\x83\x81\xE3\x83\xA3|\xE5\x8A\x9F\xE8\x83\xBD|\xEA\xB8\xB0\xEB\x8A\xA5(.*)"
+scopeName: text.cucumber.feature
+name: Cucumber Plain Text Feature
+keyEquivalent: ^~C
+repository: 
+  line_keyword: 
+    captures: 
+      "1": 
+        name: keyword.language.cucumber.feature.scenario.line
+    match: "\\b(A|AN|Aber|Abstrakt Scenario|Ale|Allora|Alors|Als|And|And y'all|Antecedentes|Arabic|Atunci|B4|BUT|Background|Baggrund|Bahasa Indonesia|Bakgrund|Bakgrunn|Beispiele|Bet|But|But y'all|Cand|Chinese simplified|Contoh|Cuando|Cymraeg|C\xC3\xA2nd|DEN|Daca|Dac\xC4\x83|Dado|Dan|Dane|Danish|Dann|Dar|Dato|Dengan|Deutsch|Duota|Dutch|E|EXAMPLZ|Eeldades|Ejemplos|Eksempler|En|Enghreifftiau|English|Entonces|Ent\xC3\xA3o|Esquema del escenario|Estonian|Et|Etant donn\xC3\xA9|Examples|Exempel|Exemples|Finnish|French|GIVN|Gegeben sei|Gegeven|German|Gitt|Given|Given y'all|Givet|Indonesian|Ir|Italian|Ja|Japanese|Je\xC5\xBCeli|Kai|Ketika|Korean|Kui|Kuid|Kun|LOLCAT|Lithuanian|Lorsque|MISHUN SRSLY|Ma|Maar|Mais|Maka|Mas|Men|Mutta|Nederlands|Niin|Norwegian|N\xC3\xA4r|N\xC3\xA5r|Och|Og|Oletetaan|Ond|Oraz|Pavyzd\xC5\xBEi\xC5\xB3|Pero|Pi\xC3\xB9 esempi|Polish|Portuguese|Pryd|Quando|Romanian|Romanian (diacritical)|Russian|Scenario Outline|Sc\xC3\xA9nario esquisse|Shift_JIS|Si|Siis|Skenario konsep|Spanish|Svenska|Swedish|Szenariogrundriss|S\xC3\xA5|Tada|Tapaukset|Tapausaihio|Tapi|Texan|Then|Then y'all|UTF-8|Und|WEN|Welsh|Wenn|When|When y'all|Wtedy|Y|Yna|anrhegedig a|dansk|eesti keel|espa\xC3\xB1ol|fran\xC3\xA7ais|italiano|lietuvi\xC5\xB3 kalba|norsk|polski|portugu\xC3\xAAs|rom\xC3\xA2n\xC4\x83|rom\xC3\xA2n\xC4\x83 (diacritical)|suomi|\xC8\x98i|\xD0\x95\xD1\x81\xD0\xBB\xD0\xB8|\xD0\x98|\xD0\x9D\xD0\xBE|\xD0\xA1\xD0\xBD\xD0\xB0\xD1\x87\xD0\xB0\xD0\xBB\xD0\xB0|\xD0\xA2\xD0\xBE|\xD1\x80\xD1\x83\xD1\x81\xD1\x81\xD0\xBA\xD0\xB8\xD0\xB9 \xD1\x8F\xD0\xB7\xD1\x8B\xD0\xBA|\xD8\xA7\xD8\xB0\xD8\xA7\xD9\x8B|\xD8\xA7\xD9\x84\xD8\xB9\xD8\xB1\xD8\xA8\xD9\x8A\xD8\xA9|\xD8\xA8\xD9\x81\xD8\xB1\xD8\xB6|\xD9\x84\xD9\x83\xD9\x86|\xD9\x85\xD8\xAA\xD9\x89|\xD9\x88|\xE3\x81\x8B\xE3\x81\xA4|\xE3\x81\x97\xE3\x81\x8B\xE3\x81\x97|\xE3\x81\xAA\xE3\x82\x89\xE3\x81\xB0|\xE3\x82\x82\xE3\x81\x97|\xE4\xB8\xAD\xE6\x96\x87|\xE4\xBB\x96\xE3\x81\xAE\xE3\x82\xB5\xE3\x83\xB3\xE3\x83\x97\xE3\x83\xAB|\xE4\xBD\x86\xE6\x98\xAF|\xE5\x81\x87\xE5\xA6\x82|\xE5\x89\x8D\xE6\x8F\x90|\xE5\xBD\x93|\xE6\x97\xA5\xE6\x9C\xAC\xE8\xAA\x9E|\xE8\x80\x8C\xE4\xB8\x94|\xE9\x82\xA3\xE4\xB9\x88|\xEA\xB7\xB8\xEB\x9F\xAC\xEB\xA9\xB4|\xEA\xB7\xB8\xEB\xA6\xAC\xEA\xB3\xA0|\xEB\xA7\x8C\xEC\x9D\xBC|\xEC\xA1\xB0\xEA\xB1\xB4|\xED\x95\x98\xEC\xA7\x80\xEB\xA7\x8C|\xED\x95\x9C\xEA\xB5\xAD\xEC\x96\xB4)\\b"
+  feature_keyword: 
+    captures: 
+      "1": 
+        name: keyword.language.cucumber.feature
+      "2": 
+        name: string.language.cucumber.feature.title
+    match: "\\b(Arwedd|Funcionalidade|Egenskab|Egenskap|Feature|Fitur|Fonctionnalit\xC3\xA9|Functionalitate|Functionaliteit|Func\xC8\x9Bionalitate|Funktionalit\xC3\xA4t|Funzionalit\xC3\xA0|OH HAI|Omadus|Ominaisuus|S\xC4\x85vyb\xC4\x97|W\xC5\x82a\xC5\x9Bciwo\xC5\x9B\xC4\x87|\xD0\xA4\xD1\x83\xD0\xBD\xD0\xBA\xD1\x86\xD0\xB8\xD0\xBE\xD0\xBD\xD0\xB0\xD0\xBB|\xD8\xAE\xD8\xA7\xD8\xB5\xD9\x8A\xD8\xA9|\xE3\x83\x95\xE3\x82\xA3\xE3\x83\xBC\xE3\x83\x81\xE3\x83\xA3|\xE5\x8A\x9F\xE8\x83\xBD|\xEA\xB8\xB0\xEB\x8A\xA5:)(.*)\\b"
+  comments: 
+    captures: 
+      "0": 
+        name: comment.line.number-sign
+    match: \s*(#.*)
+  pending_keyword: 
+    captures: 
+      "1": 
+        name: keyword.language.cucumber.feature.scenario.pending.line
+      "2": 
+        name: string.language.cucumber.feature.scenario.pending.line
+    match: \b(Pending)(.*)\b
+  strings_single_quote: 
+    captures: 
+      "0": 
+        name: string.quoted.single
+    match: \s+'([^']+)'[\b\s]+
+  strings_double_quote: 
+    captures: 
+      "0": 
+        name: string.quoted.double
+    match: \s+"([^"]+)"[\b\s]+
+  scenario_keyword: 
+    captures: 
+      "1": 
+        name: keyword.language.cucumber.feature.scenario
+      "2": 
+        name: string.language.cucumber.feature.scenario.title
+    match: "\\b(Cen\xC3\xA1rio|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Sc\xC3\xA9nario|Skenario|Stsenaarium|Szenario|Tapaus|\xD0\xA1\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB0\xD1\x80\xD0\xB8\xD0\xB9|\xD8\xB3\xD9\x8A\xD9\x86\xD8\xA7\xD8\xB1\xD9\x8A\xD9\x88|\xE3\x82\xB7\xE3\x83\x8A\xE3\x83\xAA\xE3\x82\xAA|\xE5\x9C\xBA\xE6\x99\xAF|\xEC\x98\x88:)(.*)\\b"
+  description: 
+    captures: 
+      "1": 
+        name: keyword.language.cucumber.feature.description
+      "2": 
+        name: string.language.cucumber.feature.description
+    match: ^\s*(As an|As a|I want|So that|In order)(.*)
+uuid: 85E2C52C-9B16-4A54-81E7-6D8D3ADAEFA8
+patterns: 
+- include: "#scenario_keyword"
+- include: "#description"
+- include: "#feature_keyword"
+- include: "#line_keyword"
+- include: "#pending_keyword"
+- include: "#strings_single_quote"
+- include: "#strings_double_quote"
+- include: "#comments"
+foldingStartMarker: "^\\s*\\b(Cen\xC3\xA1rio|Escenario|MISHUN|Scenarie|Scenarijus|Scenario|Scenariu|Scenariusz|Sc\xC3\xA9nario|Skenario|Stsenaarium|Szenario|Tapaus|\xD0\xA1\xD1\x86\xD0\xB5\xD0\xBD\xD0\xB0\xD1\x80\xD0\xB8\xD0\xB9|\xD8\xB3\xD9\x8A\xD9\x86\xD8\xA7\xD8\xB1\xD9\x8A\xD9\x88|\xE3\x82\xB7\xE3\x83\x8A\xE3\x83\xAA\xE3\x82\xAA|\xE5\x9C\xBA\xE6\x99\xAF|\xEC\x98\x88:)"
+foldingStopMarker: ^\s*$
+fileTypes: 
+- feature

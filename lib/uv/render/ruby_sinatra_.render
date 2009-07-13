@@ -1,0 +1,9 @@
+--- 
+scopeName: source.ruby.sinatra
+name: Ruby (Sinatra)
+keyEquivalent: ^~R
+uuid: 1522587B-5E4F-45CE-AD11-5E2F44467EDC
+patterns: 
+- name: keyword
+  match: \b(get|put|post|delete|head|error|configure|before|helpers|use_in_file_templates!|use|haml|erb|sass|set|enable|disable)\b
+- include: source.ruby

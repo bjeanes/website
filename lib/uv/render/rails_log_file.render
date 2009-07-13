@@ -1,0 +1,39 @@
+--- 
+scopeName: log
+name: Rails Log File
+uuid: 45747523-F19F-46BF-A30F-30977654D27D
+patterns: 
+- name: keyword.header
+  match: ^(Processing|Rendering|Rendered|Redirected to|Completed in).+
+- name: support.type
+  match: \[[0-9][^m]*m
+- name: support.type
+  match: "(?<=^ {4})On line \\#[0-9]+ of "
+- name: constant.numeric
+  match: ^ *[0-9]+
+- name: constant.numeric
+  match: \#[0-9]+
+- name: markup.underline.link
+  match: (?<=^ {4})[^:]+
+- name: keyword
+  match: (?<=`)[a-z_A-Z][a-z_A-Z0-9]*(?=')
+- name: markup.underline.link
+  match: (?<=^ {4}On line \#\d\d\d of )[^:]+
+- name: markup.underline.link
+  match: (?<=^ {4}On line \#\d\d of )[^:]+
+- name: markup.underline.link
+  match: (?<=^ {4}On line \#\d of )[^:]+
+- name: invalid
+  match: ^[a-zA-Z:]+Error
+- name: constant.numeric
+  match: (?<=:)[0-9]+(?!x)
+- name: string.quoted.double.untitled
+  begin: "\""
+  end: "\""
+  patterns: 
+  - name: constant.character.escape.untitled
+    match: \\.
+foldingStartMarker: "^Processing "
+foldingStopMarker: ^Completed in
+fileTypes: 
+- log

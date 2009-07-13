@@ -1,0 +1,80 @@
+--- 
+scopeName: source.ruby.rails.shoulda
+name: Ruby on Rails (Shoulda)
+keyEquivalent: ^~R
+repository: 
+  should: 
+    name: meta.should.ruby.shoulda
+    begin: ^\s*(should|should_eventually)\b
+    endCaptures: 
+      "1": 
+        name: keyword.control.start-block.ruby.shoulda
+    beginCaptures: 
+      "1": 
+        name: keyword.other.should.ruby.shoulda
+    end: \b(do)\s*$
+    patterns: 
+    - include: source.ruby
+  asserts: 
+    name: support.function
+    match: \b(assert[_\w]*)\b
+  context: 
+    name: meta.context.ruby.shoulda
+    begin: ^\s*(context)\b
+    endCaptures: 
+      "1": 
+        name: keyword.control.start-block.ruby.shoulda
+    beginCaptures: 
+      "1": 
+        name: keyword.other.context.ruby.shoulda
+    end: \b(do)\s*$
+    patterns: 
+    - include: source.ruby
+  macros: 
+    name: support.shoulda.macro
+    match: \b(should_require_attributes|should_require_unique_attributes|should_protect_attributes|should_not_allow_values_for|should_allow_values_for|should_ensure_length_in_range|should_ensure_length_at_least|should_ensure_value_in_range|should_only_allow_numeric_values_for|should_have_many|should_have_and_belong_to_many|should_have_one|should_belong_to|should_be_restful|should_set_the_flash_to|should_not_set_the_flash|should_assign_to|should_not_assign_to|should_respond_with|should_render_template|should_redirect_to|should_render_a_form|setup|teardown|fixtures|load_all_fixtures|should_have_db_column|should_have_db_columns|should_have_index|should_have_indices|should_require_acceptance_of|shuold_set_the_flash_to|should_have_readonly_attributes|should_change|should_not_change|should_have_named_scope|should_ensure_length_is|should_filter_params|should_respond_with_content_type|should_route|should_return_from_session)\b
+uuid: 7ED2CAAB-8CE7-4A09-9E66-1D622C60029B
+patterns: 
+- include: "#asserts"
+- include: "#macros"
+- include: "#setup"
+- include: "#context"
+- include: "#should"
+- include: source.ruby.rails
+- include: source.ruby
+foldingStartMarker: "(?x)^\n\
+  \t    (\\s*+\n\
+  \t        (module|class|def\n\
+  \t        |unless|if\n\
+  \t        |case\n\
+  \t        |begin\n\
+  \t        |for|while|until\n\
+  \t\t\t |^=begin\n\
+  \t        |(  \"(\\\\.|[^\"])*+\"          # eat a double quoted string\n\
+  \t         | '(\\\\.|[^'])*+'        # eat a single quoted string\n\
+  \t         |   [^#\"']                # eat all but comments and strings\n\
+  \t         )*\n\
+  \t         (                        \\s   (do|begin|case)\n\
+  \t         | (?<!\\$)[-+=&|*/~%^<>~] \\s*+ (if|unless)\n\
+  \t         )\n\
+  \t        )\\b\n\
+  \t        (?! [^;]*+ ; .*? \\bend\\b )\n\
+  \t    |(  \"(\\\\.|[^\"])*+\"              # eat a double quoted string\n\
+  \t     | '(\\\\.|[^'])*+'            # eat a single quoted string\n\
+  \t     |   [^#\"']                    # eat all but comments and strings\n\
+  \t     )*\n\
+  \t     ( \\{ (?!  [^}]*+ \\} )\n\
+  \t     | \\[ (?! [^\\]]*+ \\] )\n\
+  \t     )\n\
+  \t    ).*$\n\
+  \t|   [#] .*? \\(fold\\) \\s*+ $         # Sune\xE2\x80\x99s special marker\n\
+  \t"
+foldingStopMarker: "(?x)\n\
+  \t\t(   (^|;) \\s*+ end   \\s*+ ([#].*)? $\n\
+  \t\t|   (^|;) \\s*+ end \\. .* $\n\
+  \t\t|   ^     \\s*+ [}\\]] \\s*+ ([#].*)? $\n\
+  \t\t|   [#] .*? \\(end\\) \\s*+ $    # Sune\xE2\x80\x99s special marker\n\
+  \t\t|   ^=end\n\
+  \t\t)"
+fileTypes: 
+- shoulda.rb

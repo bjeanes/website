@@ -1,0 +1,19 @@
+--- 
+scopeName: source.sql.ruby
+name: SQL (Rails)
+keyEquivalent: ^~R
+uuid: D54FBDED-5481-4CC7-B75F-66465A499882
+patterns: 
+- name: source.ruby.rails.embedded.sql
+  begin: <%+(?!>)=?
+  end: "%>"
+  patterns: 
+  - name: comment.line.number-sign.ruby
+    match: "#.*?(?=%>)"
+  - include: source.ruby.rails
+- include: source.sql
+foldingStartMarker: \s*\(\s*$
+foldingStopMarker: ^\s*\)
+fileTypes: 
+- erbsql
+- sql.erb

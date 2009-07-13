@@ -1,0 +1,20 @@
+--- 
+scopeName: text.git-commit
+name: Git Commit Message
+uuid: BFE83C06-8508-44BE-A975-95A57BF619A7
+patterns: 
+- name: comment.line.number-sign.git-commit
+  captures: 
+    "1": 
+      name: punctuation.definition.comment.git-commit
+  match: ^\s*(#).*$\n?
+- name: meta.diff.git-commit
+  comment: diff presented at the end of the commit message when using commit -v. NB the end pattern is just something to be never matched so that the meta continues untill the end of the file. From Allan.
+  begin: diff\ \-\-git
+  end: (?=xxxxxx)123457
+  patterns: 
+  - include: source.diff
+foldingStartMarker: ^\+\+\+
+foldingStopMarker: ^---|^$
+fileTypes: 
+- COMMIT_EDITMSG
