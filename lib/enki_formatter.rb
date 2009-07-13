@@ -7,7 +7,7 @@ class EnkiFormatter
         :code_formatter => lambda { |code, lang| 
           lang = lang.to_s.downcase
           
-          code = Uv.parse(CGI::unescapeHTML(code), "xhtml", lang.to_s.downcase, false)
+          code = Uv.parse(CGI::unescapeHTML(code), "xhtml", lang.to_s.downcase, false, "railscasts")
           code = code.gsub(/^<pre class="[a-zA-Z_-]+">/,%Q[<code lang="#{lang}"><pre>])
           code = code.gsub(/<\/pre>$/,'</pre></code>')
 

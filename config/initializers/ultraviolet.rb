@@ -1,0 +1,1 @@
+Uv.paths << File.join(RAILS_ROOT, 'lib', 'uv')
