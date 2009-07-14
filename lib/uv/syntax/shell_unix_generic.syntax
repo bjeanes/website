@@ -1,0 +1,662 @@
+--- 
+scopeName: source.shell
+name: Shell Script (Bash)
+keyEquivalent: ^~S
+repository: 
+  compound-command: 
+    patterns: 
+    - name: meta.scope.logical-expression.shell
+      begin: (\[{2})
+      captures: 
+        "1": 
+          name: punctuation.definition.logical-expression.shell
+      end: (\]{2})
+      patterns: 
+      - include: "#logical-expression"
+      - include: $self
+    - name: string.other.math.shell
+      begin: (\({2})
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: (\){2})
+      patterns: 
+      - include: "#math"
+    - name: meta.scope.subshell.shell
+      begin: (\()
+      captures: 
+        "1": 
+          name: punctuation.definition.subshell.shell
+      end: (\))
+      patterns: 
+      - include: $self
+    - name: meta.scope.group.shell
+      begin: (?<=\s|^)(\{)(?=\s|$)
+      captures: 
+        "1": 
+          name: punctuation.definition.group.shell
+      end: (?<=^|;)\s*(\})
+      patterns: 
+      - include: $self
+  comment: 
+    patterns: 
+    - name: comment.line.number-sign.shell
+      captures: 
+        "1": 
+          name: punctuation.definition.comment.shell
+      match: (?<!\$)(#)(?!\{).*$\n?
+  math: 
+    patterns: 
+    - include: "#variable"
+    - name: keyword.operator.arithmetic.shell
+      match: \+{1,2}|-{1,2}|!|~|\*{1,2}|/|%|<[<=]?|>[>=]?|==|!=|^|\|{1,2}|&{1,2}|\?|\:|,|=|[*/%+\-&^|]=|<<=|>>=
+    - name: constant.numeric.hex.shell
+      match: 0[xX]\h+
+    - name: constant.numeric.octal.shell
+      match: 0\d+
+    - name: constant.numeric.other.shell
+      match: \d{1,2}#[0-9a-zA-Z@_]+
+    - name: constant.numeric.integer.shell
+      match: \d+
+  list: 
+    patterns: 
+    - name: keyword.operator.list.shell
+      match: ;|&&|&|\|\|
+  herestring: 
+    patterns: 
+    - name: meta.herestring.shell
+      captures: 
+        "1": 
+          name: keyword.operator.herestring.shell
+        "2": 
+          name: string.quoted.single.herestring.shell
+        "3": 
+          name: punctuation.definition.string.begin.shell
+        "4": 
+          name: punctuation.definition.string.end.shell
+      match: (<<<)((&apos;)[^&apos;]*(&apos;))
+    - name: meta.herestring.shell
+      captures: 
+        "6": 
+          name: punctuation.definition.string.end.shell
+        "1": 
+          name: keyword.operator.herestring.shell
+        "2": 
+          name: string.quoted.double.herestring.shell
+        "3": 
+          name: punctuation.definition.string.begin.shell
+      match: (<<<)((")(\\("|\\)|[^"])*("))
+    - name: meta.herestring.shell
+      captures: 
+        "1": 
+          name: keyword.operator.herestring.shell
+        "2": 
+          name: string.unquoted.herestring.shell
+      match: (<<<)(([^\s\\]|\\.)+)
+  function-definition: 
+    patterns: 
+    - name: meta.function.shell
+      begin: \b(function)\s+((?:[^\s\\]|\\.)+)(?:\s*(\(\)))?
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.function.shell
+      beginCaptures: 
+        "1": 
+          name: storage.type.function.shell
+        "2": 
+          name: entity.name.function.shell
+        "3": 
+          name: punctuation.definition.arguments.shell
+      end: ;|&|$
+      patterns: 
+      - include: $self
+    - name: meta.function.shell
+      begin: \b((?:[^\s\\]|\\.)+)\s*(\(\))
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.function.shell
+      beginCaptures: 
+        "1": 
+          name: entity.name.function.shell
+        "2": 
+          name: punctuation.definition.arguments.shell
+      end: ;|&|$
+      patterns: 
+      - include: $self
+  redirection: 
+    patterns: 
+    - name: string.interpolated.process-substitution.shell
+      begin: "[><]\\("
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: \)
+      patterns: 
+      - include: $self
+    - name: keyword.operator.redirect.shell
+      comment: "valid: &>word >&word >word [n]>&[n] [n]<word [n]>word [n]>>word [n]<&word (last one is duplicate)"
+      match: "&>|\\d*>&\\d*|\\d*(>>|>|<)|\\d*<&|\\d*<>"
+  pipeline: 
+    patterns: 
+    - name: keyword.other.shell
+      match: \b(time)\b
+    - name: keyword.operator.pipe.shell
+      match: "[|!]"
+  case-clause: 
+    patterns: 
+    - name: meta.scope.case-clause.shell
+      begin: (?=\S)
+      endCaptures: 
+        "0": 
+          name: punctuation.terminator.case-clause.shell
+      end: ;;
+      patterns: 
+      - name: meta.scope.case-pattern.shell
+        begin: (\(|(?=\S))
+        captures: 
+          "0": 
+            name: punctuation.definition.case-pattern.shell
+        end: \)
+        patterns: 
+        - name: punctuation.separator.pipe-sign.shell
+          match: \|
+        - include: "#string"
+        - include: "#variable"
+        - include: "#interpolation"
+        - include: "#pathname"
+      - name: meta.scope.case-clause-body.shell
+        begin: (?<=\))
+        end: (?=;;)
+        patterns: 
+        - include: $self
+  support: 
+    patterns: 
+    - name: support.function.builtin.shell
+      match: (?<=^|\s)(?::|\.)(?=\s|;|&|$)
+    - name: support.function.builtin.shell
+      match: \b(?:alias|bg|bind|break|builtin|caller|cd|command|compgen|complete|dirs|disown|echo|enable|eval|exec|exit|false|fc|fg|getopts|hash|help|history|jobs|kill|let|local|logout|popd|printf|pushd|pwd|read|readonly|set|shift|shopt|source|suspend|test|times|trap|true|type|ulimit|umask|unalias|unset|wait)\b
+  interpolation: 
+    patterns: 
+    - name: string.other.math.shell
+      begin: \$\({2}
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: \){2}
+      patterns: 
+      - include: "#math"
+    - name: string.interpolated.backtick.shell
+      begin: `
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: `
+      patterns: 
+      - name: constant.character.escape.shell
+        match: \\[`\\$]
+      - include: $self
+    - name: string.interpolated.dollar.shell
+      begin: \$\(
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: \)
+      patterns: 
+      - include: $self
+  pathname: 
+    patterns: 
+    - name: keyword.operator.tilde.shell
+      match: (?<=\s|:|=|^)~
+    - name: keyword.operator.glob.shell
+      match: \*|\?
+    - name: meta.structure.extglob.shell
+      begin: ([?*+@!])(\()
+      endCaptures: 
+        "1": 
+          name: punctuation.definition.extglob.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.extglob.shell
+        "2": 
+          name: punctuation.definition.extglob.shell
+      end: (\))
+      patterns: 
+      - include: $self
+  string: 
+    patterns: 
+    - name: constant.character.escape.shell
+      match: \\.
+    - name: string.quoted.single.shell
+      begin: "&apos;"
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: "&apos;"
+    - name: string.quoted.double.shell
+      begin: \$?"
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: "\""
+      patterns: 
+      - name: constant.character.escape.shell
+        match: \\[\$`"\\\n]
+      - include: "#variable"
+      - include: "#interpolation"
+    - name: string.quoted.single.dollar.shell
+      begin: \$&apos;
+      endCaptures: 
+        "0": 
+          name: punctuation.definition.string.end.shell
+      beginCaptures: 
+        "0": 
+          name: punctuation.definition.string.begin.shell
+      end: "&apos;"
+      patterns: 
+      - name: constant.character.escape.ansi-c.shell
+        match: \\(a|b|e|f|n|r|t|v|\\|&apos;)
+      - name: constant.character.escape.octal.shell
+        match: \\[0-9]{3}
+      - name: constant.character.escape.hex.shell
+        match: \\x[0-9a-fA-F]{2}
+      - name: constant.character.escape.control-char.shell
+        match: \\c.
+  loop: 
+    patterns: 
+    - name: meta.scope.for-loop.shell
+      begin: \b(for)\s+(?=\({2})
+      captures: 
+        "1": 
+          name: keyword.control.shell
+      end: \b(done)\b
+      patterns: 
+      - include: $self
+    - name: meta.scope.for-in-loop.shell
+      begin: \b(for)\s+((?:[^\s\\]|\\.)+)\b
+      endCaptures: 
+        "1": 
+          name: keyword.control.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.control.shell
+        "2": 
+          name: variable.other.loop.shell
+      end: \b(done)\b
+      patterns: 
+      - include: $self
+    - name: meta.scope.while-loop.shell
+      begin: \b(while|until)\b
+      captures: 
+        "1": 
+          name: keyword.control.shell
+      end: \b(done)\b
+      patterns: 
+      - include: $self
+    - name: meta.scope.select-block.shell
+      begin: \b(select)\s+((?:[^\s\\]|\\.)+)\b
+      endCaptures: 
+        "1": 
+          name: keyword.control.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.control.shell
+        "2": 
+          name: variable.other.loop.shell
+      end: \b(done)\b
+      patterns: 
+      - include: $self
+    - name: meta.scope.case-block.shell
+      begin: \b(case)\b
+      captures: 
+        "1": 
+          name: keyword.control.shell
+      end: \b(esac)\b
+      patterns: 
+      - name: meta.scope.case-body.shell
+        begin: \b(?:in)\b
+        beginCaptures: 
+          "1": 
+            name: keyword.control.shell
+        end: (?=\b(?:esac)\b)
+        patterns: 
+        - include: "#comment"
+        - include: "#case-clause"
+        - include: $self
+      - include: $self
+    - name: meta.scope.if-block.shell
+      begin: \b(if)\b
+      captures: 
+        "1": 
+          name: keyword.control.shell
+      end: \b(fi)\b
+      patterns: 
+      - include: $self
+  logical-expression: 
+    patterns: 
+    - name: keyword.operator.logical.shell
+      comment: do we want a special rule for ( expr )?
+      match: =[=~]?|!=?|<|>|&&|\|\|
+    - name: keyword.operator.logical.shell
+      match: -(nt|ot|ef|eq|ne|l[te]|g[te]|[a-hknoprstuwxzOGLSN])
+  keyword: 
+    patterns: 
+    - name: keyword.control.shell
+      match: \b(?:if|then|else|elif|fi|for|in|do|done|select|case|continue|esac|while|until|return)\b
+    - name: storage.modifier.shell
+      match: \b(?:export|declare|typeset|local|readonly)\b
+  variable: 
+    patterns: 
+    - name: variable.other.special.shell
+      captures: 
+        "1": 
+          name: punctuation.definition.variable.shell
+      match: (\$)[-*@#?$!0_]
+    - name: variable.other.positional.shell
+      captures: 
+        "1": 
+          name: punctuation.definition.variable.shell
+      match: (\$)[1-9]
+    - name: variable.other.normal.shell
+      captures: 
+        "1": 
+          name: punctuation.definition.variable.shell
+      match: (\$)[a-zA-Z_][a-zA-Z0-9_]*
+    - name: variable.other.bracket.shell
+      begin: \$\{
+      captures: 
+        "0": 
+          name: punctuation.definition.variable.shell
+      end: \}
+      patterns: 
+      - name: keyword.operator.expansion.shell
+        match: "!|:[-=?]?|\\*|@|#{1,2}|%{1,2}|/"
+      - captures: 
+          "1": 
+            name: punctuation.section.array.shell
+          "3": 
+            name: punctuation.section.array.shell
+        match: (\[)([^\]]+)(\])
+  heredoc: 
+    patterns: 
+    - name: string.unquoted.heredoc.no-indent.ruby.shell
+      begin: (<<)-("|&apos;|)(RUBY)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(RUBY)$
+      contentName: source.ruby.embedded.shell
+      patterns: 
+      - include: source.ruby
+    - name: string.unquoted.heredoc.ruby.shell
+      begin: (<<)("|&apos;|)(RUBY)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(RUBY)$
+      contentName: source.ruby.embedded.shell
+      patterns: 
+      - include: source.ruby
+    - name: string.unquoted.heredoc.no-indent.python.shell
+      begin: (<<)-("|&apos;|)(PYTHON)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(PYTHON)$
+      contentName: source.python.embedded.shell
+      patterns: 
+      - include: source.python
+    - name: string.unquoted.heredoc.python.shell
+      begin: (<<)("|&apos;|)(PYTHON)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(PYTHON)$
+      contentName: source.python.embedded.shell
+      patterns: 
+      - include: source.python
+    - name: string.unquoted.heredoc.no-indent.applescript.shell
+      begin: (<<)-("|&apos;|)(APPLESCRIPT)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(APPLESCRIPT)$
+      contentName: source.applescript.embedded.shell
+      patterns: 
+      - include: source.applescript
+    - name: string.unquoted.heredoc.applescript.shell
+      begin: (<<)("|&apos;|)(APPLESCRIPT)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(APPLESCRIPT)$
+      contentName: source.applescript.embedded.shell
+      patterns: 
+      - include: source.applescript
+    - name: string.unquoted.heredoc.no-indent.html.shell
+      begin: (<<)-("|&apos;|)(HTML)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(HTML)$
+      contentName: text.html.embedded.shell
+      patterns: 
+      - include: text.html.basic
+    - name: string.unquoted.heredoc.html.shell
+      begin: (<<)("|&apos;|)(HTML)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(HTML)$
+      contentName: text.html.embedded.shell
+      patterns: 
+      - include: text.html.basic
+    - name: string.unquoted.heredoc.no-indent.markdown.shell
+      begin: (<<)-("|&apos;|)(MARKDOWN)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(MARKDOWN)$
+      contentName: text.html.markdown.embedded.shell
+      patterns: 
+      - include: text.html.markdown
+    - name: string.unquoted.heredoc.markdown.shell
+      begin: (<<)("|&apos;|)(MARKDOWN)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(MARKDOWN)$
+      contentName: text.html.markdown.embedded.shell
+      patterns: 
+      - include: text.html.markdown
+    - name: string.unquoted.heredoc.no-indent.textile.shell
+      begin: (<<)-("|&apos;|)(TEXTILE)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(TEXTILE)$
+      contentName: text.html.textile.embedded.shell
+      patterns: 
+      - include: text.html.textile
+    - name: string.unquoted.heredoc.textile.shell
+      begin: (<<)("|&apos;|)(TEXTILE)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(TEXTILE)$
+      contentName: text.html.textile.embedded.shell
+      patterns: 
+      - include: text.html.textile
+    - name: string.unquoted.heredoc.no-indent.shell
+      begin: (<<)-("|&apos;|)\\?(\w+)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^\t*(\3)$
+    - name: string.unquoted.heredoc.shell
+      begin: (<<)("|&apos;|)\\?(\w+)\2
+      endCaptures: 
+        "1": 
+          name: keyword.control.heredoc-token.shell
+      captures: 
+        "0": 
+          name: punctuation.definition.string.shell
+      beginCaptures: 
+        "1": 
+          name: keyword.operator.heredoc.shell
+        "3": 
+          name: keyword.control.heredoc-token.shell
+      end: ^(\3)$
+uuid: DDEEA3ED-6B1C-11D9-8B10-000D93589AF6
+firstLineMatch: ^#!.*(bash|zsh|sh|tcsh)
+patterns: 
+- include: "#comment"
+- include: "#pipeline"
+- include: "#list"
+- include: "#compound-command"
+- include: "#loop"
+- include: "#function-definition"
+- include: "#string"
+- include: "#variable"
+- include: "#interpolation"
+- include: "#heredoc"
+- include: "#herestring"
+- include: "#redirection"
+- include: "#pathname"
+- include: "#keyword"
+- include: "#support"
+foldingStartMarker: \b(if|case)\b|(\{|\b(do)\b)$
+foldingStopMarker: ^\s*(\}|(done|fi|esac)\b)
+fileTypes: 
+- sh
+- ss
+- bashrc
+- bash_profile
+- bash_login
+- profile
+- bash_logout
+- .textmate_init
