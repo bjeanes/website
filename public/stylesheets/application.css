@@ -300,6 +300,13 @@ body > article {
     padding-left: 1em;
   }
   
+  body > article img {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    max-width: 100%;
+  }
   
   /**************************** <CODE FORMATTING> ****************************/
   body > article p code {
