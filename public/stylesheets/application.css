@@ -308,6 +308,17 @@ body > article {
     max-width: 100%;
   }
   
+  body > article ol, 
+  body > article ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+  
+    body > article ol table, 
+    body > article ul table{
+      margin-left: -70px;
+    }
+  
   /**************************** <CODE FORMATTING> ****************************/
   body > article p code {
     padding: 3px;
@@ -378,57 +389,59 @@ body > article {
     /*************************** </CODE FORMATTING> ****************************/
   
   /******************************** <COMMENTS> ********************************/
-  body > article > aside ~ section:last-of-type {
+  body > article:only-of-type > aside ~ section:last-of-type {
     margin-top:40px;
   }
     
-    body > article > aside ~ section:last-of-type ol:first-of-type {
+    body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type {
       border-top: 1px dotted #4B4B4B;
       margin-top:20px;
       list-style: none;
       width: 598px;
       margin-left: -20px;
+      padding-left: 0;
+      margin-bottom: 20px;
     }
   
-      body > article > aside ~ section:last-of-type ol:first-of-type li {
+      body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li {
         border-bottom: 1px dotted #4B4B4B;
         padding: 20px;
       }
       
-      body > article > aside ~ section:last-of-type ol:first-of-type li p {
+      body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li p {
         margin-bottom: 0;
       }
       
-        body > article > aside ~ section:last-of-type ol:first-of-type li h3,
-        body > article > aside ~ section:last-of-type ol:first-of-type li h3 a {
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3,
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3 a {
           color: inherit;
           font-size: 14px;
         }
         
-        body > article > aside ~ section:last-of-type ol:first-of-type li h3 a {
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3 a {
           display: inline-block;
           padding-left: 15px;
           background: transparent url(/images/openid_icon.png) no-repeat 0 3px;
         }
         
-        body > article > aside ~ section:last-of-type ol:first-of-type li time {
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li time {
           font-size: 11px;
         }
   
-      body > article > aside ~ section:last-of-type ol:first-of-type li:nth-of-type(2n+1) {
+      body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li:nth-of-type(2n+1) {
         background-color:#C5C5C5;
       }
   
-        body > article > aside ~ section:last-of-type ol:first-of-type li table {
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li table {
           margin-left: -51px;
           opacity:0.8;
         }
   
-          body > article > aside ~ section:last-of-type ol:first-of-type li table caption {
+          body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li table caption {
             color: #000;
           }
           
-    body > article > aside ~ section:last-of-type textarea {
+    body > article:only-of-type > aside ~ section:last-of-type textarea {
       width: 100%;
     }
 
@@ -450,6 +463,7 @@ body > article {
   body > article.archives ol li,
   body > article.archives ul li {
     list-style: none;
+    margin-bottom:10px;
   }
       
 /******************************* </MAIN CONTENT> *******************************/
