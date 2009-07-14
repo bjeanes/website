@@ -2,6 +2,6 @@
   <%= javascript_include_tag 'common' %>
   <%= javascript_include_tag 'live-comment-preview' %>
 <% end -%>
-<% content_for(:page_title) { h(post_title(@post)) } -%>
+<% content_for(:page_title) { concat h(post_title(@post)) } -%>
 
 <%= render :partial => 'posts/post', :locals => {:post => @post} %>

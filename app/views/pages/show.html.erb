@@ -1,2 +1,2 @@
-<% content_for(:page_title) { h(page_title(@page)) } -%>
+<% content_for(:page_title) { concat h(page_title(@page)) } -%>
 <%= render :partial => 'pages/page', :locals => {:page => @page} %>
