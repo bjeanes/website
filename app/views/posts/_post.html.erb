@@ -18,6 +18,7 @@
   </aside>
 
   <section>
+    <%= post.excerpt_html.untaint unless post.excerpt_html.blank? -%>
     <%= post.body_html.untaint %>
   </section>
   
