@@ -18,8 +18,8 @@
   </aside>
 
   <section>
-    <%= post.excerpt_html.untaint unless post.excerpt_html.blank? -%>
-    <%= post.body_html.untaint %>
+    <%= post.excerpt_html.untaint unless post.excerpt_html.blank? %>
+    <%= post.body_html.untaint if action_name == 'show' || post.excerpt_html.blank? %>
   </section>
   
   <% if action_name == 'show' %>
