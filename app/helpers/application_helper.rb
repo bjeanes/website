@@ -21,6 +21,7 @@ module ApplicationHelper
   
   def format_comment_error(error)
     {
+      'question' => 'Question was not answered correctly',
       'body'   => 'Please comment',
       'author' => 'Please provide your name or OpenID identity URL',
       'base'   => error.last

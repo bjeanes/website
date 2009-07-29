@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @show_whole_post = true
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
     @comment = Comment.new
   end

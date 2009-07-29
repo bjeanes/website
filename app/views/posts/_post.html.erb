@@ -19,10 +19,10 @@
 
   <section>
     <%= post.excerpt_html.untaint unless post.excerpt_html.blank? %>
-    <%= post.body_html.untaint if action_name == 'show' || post.excerpt_html.blank? %>
+    <%= post.body_html.untaint if @show_whole_post || post.excerpt_html.blank? %>
   </section>
   
-  <% if action_name == 'show' %>
+  <% if @show_whole_post %>
     <section>
       <h2 id="comments">Comments</h2>
       
@@ -52,6 +52,11 @@
               Name or <a href="http://openidexplained.com/">OpenID</a>:
             </label>
             <%= form.text_field 'author' %>
+          </p>
+          <p>
+            <%= form.hidden_field 'question' %>
+            <label for="comment_answer"><%= @comment.question %></label>
+            <%= form.text_field 'answer' %>
           </p>
           <p>
             <%= form.text_area 'body' %>

@@ -1,8 +1,19 @@
 class Comment < ActiveRecord::Base
   DEFAULT_LIMIT = 15
+  
+  SPAM_TESTS = {
+    "What is two plus two?" => ["four", "4"],
+    "What is two squared?" => ["four", "4"],
+    "What is the colour of the sky?" => ["blue"],
+    "What is the first letter of 'Ruby'?" => ["r"],
+    "What is the meaning of life, the universe, and everything?" => ["42", "forty-two", "forty two"],
+    "Are you posting spam?" => ["no", "n", "false"]
+  }
 
   attr_accessor         :openid_error
   attr_accessor         :openid_valid
+  attr_accessor         :question
+  attr_accessor         :answer
 
   belongs_to            :post
 
@@ -11,6 +22,7 @@ class Comment < ActiveRecord::Base
   after_destroy         :denormalize
 
   validates_presence_of :author, :body, :post
+  validate              :validates_question_answered_correctly
 
   # validate :open_id_thing
   def validate
@@ -55,6 +67,10 @@ class Comment < ActiveRecord::Base
     end
     undo_item
   end
+  
+  def question
+    @question ||= SPAM_TESTS.keys.rand
+  end
 
   # Delegates
   def post_title
@@ -89,4 +105,10 @@ class Comment < ActiveRecord::Base
       }.merge(options))
     end
   end
+  
+  protected
+    def validates_question_answered_correctly
+      answers = SPAM_TESTS[question]
+      errors.add('question', "was not answered correctly") unless answers.include?(answer.to_s.downcase)
+    end
 end

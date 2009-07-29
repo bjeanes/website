@@ -29,6 +29,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) })
     @comment.post = @post
+    
+    if session[:pending_comment].nil?
+      @comment.question = params[:comment][:question]
+      @comment.answer   = params[:comment][:answer]
+    end
+    
+    @show_whole_post = true
 
     session[:pending_comment] = nil
 
