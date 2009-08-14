@@ -24,13 +24,11 @@
       </a>
       
       <nav>
-        <ul>
-          <% tabs do |tab| %>
-            <% page_links_for_navigation.each do |link| -%>
-              <%= tab.send(link.slug, link.name, link.url) %>
-            <% end -%>
-          <% end %>
-        </ul>
+        <% tabs do |tab| %>
+          <% page_links_for_navigation.each do |link| -%>
+            <%= tab.send(link.slug, link.name, link.url) %>
+          <% end -%>
+        <% end %>
       </nav>
     </header>
     
