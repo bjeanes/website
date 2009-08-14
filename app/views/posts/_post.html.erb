@@ -58,9 +58,7 @@
             <label for="comment_answer"><%= @comment.question %></label>
             <%= form.text_field 'answer' %>
           </p>
-          <p>
-            <%= form.text_area 'body' %>
-          </p>
+          <p><%= form.text_area 'body' %></p>
           <p><%= submit_tag "Add Comment" %></p>
         </div>
       <% end -%>

@@ -351,16 +351,17 @@ body > article {
     padding: 3px;
   }
 
-
-/*  body > article table {
+  body > article figure {
     position: relative;
-    table-layout:fixed;
-    margin-left: -51px;
-    width: 629px;
+    margin-left: -50px;
+    display: table;
+    width: 630px;
     border-collapse: collapse;
+    table-layout:fixed;
   }
 
-    body > article table > caption {
+    body > article figure > legend {
+      display: table-caption;
       color: #2E2E2E;
       font-size: 18px;
       padding-right:5px;
@@ -369,39 +370,33 @@ body > article {
       text-shadow: 1px 0px white;
     }
 
-
-    body > article table pre,
-    body > article p code {
+    body > article figure pre,
+    body > article code {
       font-family: 'Menlo', 'Monaco', 'Anonymous Pro', 'Courier New', monospace;
       font-size: 12px;
       line-height: 1.6em;
     }
+    body > article figure > div {
+      display: table-row;
+      position: relative;
+    }
 
 
-    body > article table pre {
+    body > article figure > div pre,
+    body > article figure > div code {
+      display: table-cell;
+      vertical-align: top;
+      border-spacing: 0;
+      padding-right: 5px;
       padding-top: 10px;
       padding-bottom: 10px;
     }
 
-
-    body > article table th {
+    body > article figure div > pre {
       text-align: right;
       width: 30px;
-    }
-
-
-    body > article table th,
-    body > article table td {
-      vertical-align: top;
-      border-spacing: 0;
-    }
-
-
-    body > article table th pre {
       background-color: rgba(15,15,15,0.6);
       color: #B6B6B6;
-      padding-right: 5px;
-
 
       -webkit-border-top-left-radius: 5px;
       -webkit-border-bottom-left-radius: 5px;
@@ -412,79 +407,18 @@ body > article {
     }
 
 
-    body > article table td {
-      width: 597px;
+    body > article figure div > code {
+      width: 598px;
+      padding-left: 20px;
+      overflow-x: auto;
+      white-space: pre;
+      position: absolute;
+      clear: both;
     }
-
-      body > article table td pre {
-        padding-left: 20px;
-        overflow-x: auto;
-      }
-    */
-    body > article figure {
-      position: relative;
-      margin-left: -50px;
-      margin-bottom: 15px;
-      display: table;
-      width: 630px;
-      border-collapse: collapse;
-      table-layout:fixed;
+    
+    body > article figure div > code::after {
+      clear:both;
     }
-
-      body > article figure > legend {
-        display: table-caption;
-        color: #2E2E2E;
-        font-size: 18px;
-        padding-right:5px;
-        line-height: 12px;
-        text-align: right;
-        text-shadow: 1px 0px white;
-      }
-
-      body > article figure pre,
-      body > article code {
-        font-family: 'Menlo', 'Monaco', 'Anonymous Pro', 'Courier New', monospace;
-        font-size: 12px;
-        line-height: 1.6em;
-      }
-      body > article figure > div {
-        display: table-row;
-      }
-
-
-      body > article figure > div pre,
-      body > article figure > div code {
-        display: table-cell;
-        vertical-align: top;
-        border-spacing: 0;
-        padding-right: 5px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
-      body > article figure div > pre {
-        text-align: right;
-        width: 30px;
-        background-color: rgba(15,15,15,0.6);
-        color: #B6B6B6;
-
-        -webkit-border-top-left-radius: 5px;
-        -webkit-border-bottom-left-radius: 5px;
-        -moz-border-radius-topleft: 5px;
-        -moz-border-radius-bottomleft: 5px;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-      }
-
-
-      body > article figure div > code {
-        width: 598px;
-        padding-left: 20px;
-        overflow-x: auto;
-        white-space: pre;
-        display: table-cell;
-        position: absolute;
-      }
 
     /*************************** </CODE FORMATTING> ****************************/
 
@@ -541,7 +475,7 @@ body > article {
 
 
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li figure {
-          margin-left: -51px;
+          margin-left: -50px;
           opacity:0.8;
         }
 

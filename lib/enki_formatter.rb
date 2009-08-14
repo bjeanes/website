@@ -66,9 +66,10 @@ class EnkiFormatter
         
         def code(opts)  # :nodoc:
           opts[:block] = true
+          
           if opts[:lang]
             highlighted_code = EnkiFormatter.highlight_code(opts[:text], opts[:lang])
-            highlighted_code.sub!(/\A<pre.*?>/, "<code#{pba(opts)}>")
+            highlighted_code.sub!(/\A<pre.*?>/, %Q{<code data-code-lang="#{opts[:lang]}">})
             highlighted_code.sub!(/[\r\n\s]*<\/pre>\Z/, '</code>')
             highlighted_code = unescape(highlighted_code)
             highlighted_code
