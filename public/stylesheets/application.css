@@ -193,6 +193,9 @@ body > details {
     body > details ul li {
       margin-top: 0;
       list-style: none;
+      clear:both;
+      display:block;
+      margin-left:10px;
       margin-bottom: 2px;
     }
   
