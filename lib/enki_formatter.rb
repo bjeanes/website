@@ -19,16 +19,28 @@ class EnkiFormatter
     
       begin
         code = highlight_code(code, lang)
-        code = code.sub(/\A<pre class="[a-zA-Z_-]+">/,%Q[<code lang="#{lang}"><pre>])
+        code = code.sub(/\A<pre class="[a-zA-Z_-]+">/,%Q[<code data-code-lang="#{lang}"><pre>])
         code = code.sub(/<\/pre>\Z/,'</pre></code>')
       rescue
-        code = %Q{<code lang="#{lang}"><pre>#{code}</pre></code>}
+        code = %Q{<code data-code-lang="#{lang}"><pre>#{code}</pre></code>}
       end
 
       lines = (1...(code.split(/\n/).size)).to_a.join("\n")
     
       # TODO redo this without tables but stil have line numbers not selectable
-      "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>"
+      # "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>";
+      %Q[
+          <figure>
+            <div>
+              <div>
+                <pre>#{lines}</pre>
+              </div>
+              <div>
+                #{code}
+              </div>
+            </div>
+          </figure>
+        ]
   }
   
   # Inspired by CodeRay.for_redcloth
