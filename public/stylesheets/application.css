@@ -1,8 +1,3 @@
-/* @override 
-	http://localhost:3000/stylesheets/application.css?1250220169
-	http://localhost:3000/stylesheets/application.css?1250220406
-*/
-
 /*************************** <A FEW RESET STYLES> **************************/
 * {
   box-sizing: border-box;
@@ -39,7 +34,7 @@ body {
   background: #CECECE url(/images/background.png) repeat scroll 0 0;
 }
 
-  
+
   body a {
     color: #3B5B81;
   }
@@ -69,23 +64,27 @@ body > header {
     left: 100px;
     top: 20px;
   }
-  
+
+
     body > header > h1 a {
       display:block;
       width:189px;
       height:52px;
       z-index: 100;
     }
-    
+
+
   body > header > a {
     right: -1px;
     top: -1px;
   }
-  
+
+
     body > header > a > img {
       border: 0;
     }
-  
+
+
   body > header aside {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.1em;
@@ -95,12 +94,14 @@ body > header {
     padding-left: 135px;
     color: #606060;
   }
-  
+
+
     body > header aside b {
       font-weight: normal;
       color: #262626;
     }
-  
+
+
   body > header nav {
     font-family: "Lucida Grande";
     font-size: 0.8em;
@@ -113,7 +114,7 @@ body > header {
     display: inline-block;
     float:left;
   }
-  
+
   body > header nav li a,
   body > header nav li a:visited {
     z-index: 10;
@@ -141,7 +142,8 @@ body > header {
     background-color: #999;
     z-index: 50;
   }
-  
+
+
   body > header nav li a[rel~=current] {
     z-index: 100;
     margin-top: 0;
@@ -153,7 +155,8 @@ body > header {
     color: #000;
     text-shadow: none;
   }
-  
+
+
 /******************************* </PAGE HEADER> *******************************/
 
 /******************************* <PAGE SIDEBAR> *******************************/
@@ -187,15 +190,18 @@ body > details {
     padding: 5px;
     margin: 0 10px 0 0;
   }
-  
+
+
   body > details > p {
     margin-bottom: 10px;
   }
-  
+
+
   body > details > ul {
     clear:both;
   }
-  
+
+
     body > details ul li {
       margin-top: 0;
       list-style: none;
@@ -204,14 +210,16 @@ body > details {
       margin-left:10px;
       margin-bottom: 2px;
     }
-  
+
+
       body > details li a,
       body > details li a:visited {
         color: #5c2a0d;
         text-decoration: none;
         border-bottom: 1px dotted black;
       }
-      
+
+
 /******************************* </PAGE SIDEBAR> *******************************/
 
 /******************************* <MAIN CONTENT> ********************************/
@@ -248,7 +256,8 @@ body > article {
       text-align: center;
       line-height:75px;
     }
-    
+
+
     body > article > aside time a * {
       line-height:1.2em;
     }
@@ -258,26 +267,30 @@ body > article {
     body > article > aside time sub{
       position: absolute;
     } 
-    
+
+
     body > article > aside time abbr{
       top: 3px;
       font-size: 15px;
     }
-    
+
+
     body > article > aside time abbr:first-child {
       left: 8px;
     }
-    
+
+
     body > article > aside time sup+abbr {
       right: 8px;
     }
-    
-        
+
+
     body > article > aside time sup {
       font-size: 12px;
       top: 20px;
     }
-    
+
+
     body > article > aside time sub {
       font-size: 11px;
       left:0;
@@ -303,12 +316,14 @@ body > article {
     text-align: left;
     margin-bottom: 10px;
   }
-  
+
+
   body > article blockquote {
     border-left: 2px dotted #541B07;
     padding-left: 1em;
   }
-  
+
+
   body > article img {
     box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -316,23 +331,27 @@ body > article {
     -ms-box-sizing: content-box;
     max-width: 100%;
   }
-  
+
+
   body > article ol, 
   body > article ul {
     padding-left: 20px;
     margin-bottom: 20px;
   }
-  
+
+
     body > article ol figure, 
     body > article ul figure{
       margin-left: -70px;
     }
-  
+
+
   /**************************** <CODE FORMATTING> ****************************/
   body > article p code {
     padding: 3px;
   }
-  
+
+
 /*  body > article table {
     position: relative;
     table-layout:fixed;
@@ -349,35 +368,41 @@ body > article {
       text-align: right;
       text-shadow: 1px 0px white;
     }
-    
+
+
     body > article table pre,
     body > article p code {
       font-family: 'Menlo', 'Monaco', 'Anonymous Pro', 'Courier New', monospace;
       font-size: 12px;
       line-height: 1.6em;
     }
-    
+
+
     body > article table pre {
       padding-top: 10px;
       padding-bottom: 10px;
     }
-    
+
+
     body > article table th {
       text-align: right;
       width: 30px;
     }
-    
+
+
     body > article table th,
     body > article table td {
       vertical-align: top;
       border-spacing: 0;
     }
-    
+
+
     body > article table th pre {
       background-color: rgba(15,15,15,0.6);
       color: #B6B6B6;
       padding-right: 5px;
-      
+
+
       -webkit-border-top-left-radius: 5px;
       -webkit-border-bottom-left-radius: 5px;
       -moz-border-radius-topleft: 5px;
@@ -385,7 +410,8 @@ body > article {
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
     }
-    
+
+
     body > article table td {
       width: 597px;
     }
@@ -397,9 +423,10 @@ body > article {
     */
     body > article figure {
       position: relative;
-      margin-left: -51px;
+      margin-left: -50px;
+      margin-bottom: 15px;
       display: table;
-      width: 629px;
+      width: 630px;
       border-collapse: collapse;
       table-layout:fixed;
     }
@@ -423,7 +450,8 @@ body > article {
       body > article figure > div {
         display: table-row;
       }
-      
+
+
       body > article figure > div pre,
       body > article figure > div code {
         display: table-cell;
@@ -447,25 +475,25 @@ body > article {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
       }
-      
+
+
       body > article figure div > code {
-        width: 597px;
+        width: 598px;
         padding-left: 20px;
-  	    overflow-x: auto;
-  	    white-space: pre;
-  	  }
-  	  
-  	  body > article figure {
-  	    overflow-x: scroll;
-  	  }
-    
+        overflow-x: auto;
+        white-space: pre;
+        display: table-cell;
+        position: absolute;
+      }
+
     /*************************** </CODE FORMATTING> ****************************/
-  
+
   /******************************** <COMMENTS> ********************************/
   body > article:only-of-type > aside ~ section:last-of-type {
     margin-top:40px;
   }
-    
+
+
     body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type {
       border-top: 1px dotted #4B4B4B;
       margin-top:20px;
@@ -475,70 +503,83 @@ body > article {
       padding-left: 0;
       margin-bottom: 20px;
     }
-  
+
+
       body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li {
         border-bottom: 1px dotted #4B4B4B;
         padding: 20px;
       }
-      
+
+
       body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li p {
         margin-bottom: 0;
       }
-      
+
+
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3,
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3 a {
           color: inherit;
           font-size: 14px;
         }
-        
+
+
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li h3 a {
           display: inline-block;
           padding-left: 15px;
           background: transparent url(/images/openid_icon.png) no-repeat 0 3px;
         }
-        
+
+
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li time {
           font-size: 11px;
         }
-  
+
+
       body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li:nth-of-type(2n+1) {
         background-color:#C5C5C5;
       }
-  
+
+
         body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li figure {
           margin-left: -51px;
           opacity:0.8;
         }
-  
+
+
           body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li figure caption {
             color: #000;
           }
-          
+
+
     body > article:only-of-type > aside ~ section:last-of-type textarea {
       width: 100%;
     }
 
   /******************************** </COMMENTS> ********************************/
-  
+
+
   body > article.archives ol {
     margin-bottom:15px;
   }
-  
+
+
   body > article.archives ul {
     -moz-column-count: 2;
-  	-moz-column-gap: 20px;
-  	-webkit-column-count: 2;
-  	-webkit-column-gap: 20px;
-  	column-count: 2;
-  	column-gap: 20px;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 20px;
   }
-  
+
+
   body > article.archives ol li,
   body > article.archives ul li {
     list-style: none;
     margin-bottom:10px;
   }
-      
+
+
 /******************************* </MAIN CONTENT> *******************************/
 
 
@@ -553,7 +594,8 @@ body > footer {
   font-size: 85%;
   color:#1C1C1C;
 }
-  
+
+
 body > footer {
   text-align:center;
   font-size: 70%;
