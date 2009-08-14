@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
 
   helper :all # include all helpers, all the time
-  
+  after_filter :set_content_type
   tab :home
 
   # See ActionController::RequestForgeryProtection for details
@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
     @@config = Enki::Config.default
   end
   helper_method :config
+
+  def set_content_type
+    headers['Content-Type'] ||= 'application/xhtml+xml; charset=utf-8'
+  end
 end

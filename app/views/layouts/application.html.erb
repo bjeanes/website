@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +7,7 @@
     <%= javascript_include_tag 'jquery' %>
     <%= open_id_delegation_link_tags(h(config[:open_id_delegation, :server]), h(config[:open_id_delegation, :delegate])) if config[:open_id_delegation] %>
     
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
     <meta name="description" content="<%= description %>" />
     <meta name="keywords" content="<%= meta_keyword_tags %>" />
     <meta name="author" content="<%= author.name %>" />

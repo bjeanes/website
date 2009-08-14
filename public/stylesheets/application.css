@@ -323,8 +323,8 @@ body > article {
     margin-bottom: 20px;
   }
   
-    body > article ol table, 
-    body > article ul table{
+    body > article ol figure, 
+    body > article ul figure{
       margin-left: -70px;
     }
   
@@ -415,40 +415,30 @@ body > article {
       }
 
       body > article figure pre,
-      body > article p code {
+      body > article code {
         font-family: 'Menlo', 'Monaco', 'Anonymous Pro', 'Courier New', monospace;
         font-size: 12px;
         line-height: 1.6em;
       }
-
-      body > article figure pre {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
       body > article figure > div {
         display: table-row;
       }
       
-      body > article figure > div > div {
+      body > article figure > div pre,
+      body > article figure > div code {
         display: table-cell;
         vertical-align: top;
         border-spacing: 0;
+        padding-right: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
 
-      body > article figure div > div:first-of-type {
+      body > article figure div > pre {
         text-align: right;
         width: 30px;
-      }
-      
-      body > article figure div > div:last-of-type {
-        width: 597px;
-      }
-      
-      body > article figure div div:first-of-type pre {
         background-color: rgba(15,15,15,0.6);
         color: #B6B6B6;
-        padding-right: 5px;
 
         -webkit-border-top-left-radius: 5px;
         -webkit-border-bottom-left-radius: 5px;
@@ -457,11 +447,17 @@ body > article {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
       }
-
-	  body > article figure div div:last-of-type pre {
-	    padding-left: 20px;
-	    overflow-x: auto;
-	  }
+      
+      body > article figure div > code {
+        width: 597px;
+        padding-left: 20px;
+  	    overflow-x: auto;
+  	    white-space: pre;
+  	  }
+  	  
+  	  body > article figure {
+  	    overflow-x: scroll;
+  	  }
     
     /*************************** </CODE FORMATTING> ****************************/
   
@@ -509,12 +505,12 @@ body > article {
         background-color:#C5C5C5;
       }
   
-        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li table {
+        body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li figure {
           margin-left: -51px;
           opacity:0.8;
         }
   
-          body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li table caption {
+          body > article:only-of-type > aside ~ section:last-of-type ol:first-of-type li figure caption {
             color: #000;
           }
           
