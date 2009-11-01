@@ -3,14 +3,16 @@
 <html>
   <head>
     <title><%= yield(:page_title) || h(config[:title]) %></title>
-    <%= stylesheet_link_tag 'application', 'code' %>
-    <%= javascript_include_tag 'jquery' %>
-    <%= open_id_delegation_link_tags(h(config[:open_id_delegation, :server]), h(config[:open_id_delegation, :delegate])) if config[:open_id_delegation] %>
     
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
     <meta name="description" content="<%= description %>" />
     <meta name="keywords" content="<%= meta_keyword_tags %>" />
     <meta name="author" content="<%= author.name %>" />
+    
+    <%= stylesheet_link_tag 'application', 'code' %>
+    <%= javascript_include_tag 'jquery' %>
+    <%= open_id_delegation_link_tags(h(config[:open_id_delegation, :server]), h(config[:open_id_delegation, :delegate])) if config[:open_id_delegation] %>
     
     <!-- page specific header elements -->
     <%= yield(:head) %>
