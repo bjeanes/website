@@ -4,6 +4,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  outline: none;
 }
 
 html, body,
@@ -50,6 +51,7 @@ body > header {
   height: 150px;
   border:1px solid transparent; /* weird webkit bug hack */
   background: transparent url(/images/header.png) repeat-x scroll 0 0;
+  margin-bottom: 10px;
 }
   body > header > * {
     position: absolute;
@@ -108,6 +110,22 @@ body > header {
     left: 100px;
     top: 106px;
   }
+  
+  body > header > form {
+    right: 30px;
+    bottom: 16px;
+  }
+  
+    body > header > form input {
+      width: 180px;
+      opacity: 0.6;
+    }
+    
+    body > header > form input:hover,
+    body > header > form input:active,
+    body > header > form input:focus {
+      opacity: 0.8;
+    }
 
   body > header nav li {
     list-style: none;
@@ -162,38 +180,48 @@ body > header {
 /******************************* <PAGE SIDEBAR> *******************************/
 
 body > details {
+  font-family: Helvetica, sans-serif;
   display:block;
   position: absolute;
-  width: 250px;
-  height: 200px;
+  width: 280px;
   left: 720px;
+  font-size: 80%;
 }
 
-  body > details input {
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.8;
-  }
-
   body > details > img,
-  body > details > p,
-  body > details li {
-    background-color: #CECECE;
-    display: inline-block;
+  body > details > p {
+    color: white;
+    text-shadow: 0 1px 0 #5e5e5e;
     float: left;
     clear: right;
     margin: 0;
-    margin-top: 10px;
+
+    max-width: 70%;
+  }
+  
+  body > details > p > a {
+    text-shadow: 0 1px 0 #fff;
+    text-decoration: none;
   }
 
   body > details > img {
+    background-color: #cecece;
     padding: 5px;
-    margin: 0 10px 0 0;
+    float: left;
+    margin-right: 10px;
   }
 
-
   body > details > p {
-    margin-bottom: 10px;
+    padding: 2px;
+    margin-top: 10px;
+  }
+  
+  body > details > p:first-of-type {
+    margin-top: 0;
+  }
+  
+  body > details > p:last-of-type {
+    max-width: 100%;
   }
 
 
@@ -207,7 +235,6 @@ body > details {
       list-style: none;
       clear:both;
       display:block;
-      margin-left:10px;
       margin-bottom: 2px;
     }
 
@@ -228,6 +255,7 @@ body > article {
   position: relative;
   text-align:justify;
   background-color: rgba(246, 244, 243, 0.6);
+
 }
 
   body > article > header ul li {
@@ -317,6 +345,15 @@ body > article {
     margin-bottom: 10px;
   }
 
+  body > article > section > p:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  body > article > section > p:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 
   body > article blockquote {
     border-left: 2px dotted #541B07;
