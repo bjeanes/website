@@ -1,6 +1,0 @@
-RedCloth             -v "= 4.1.1"
-ruby-openid          -v "~> 2.1.0"
-chronic              -v "~> 0.2.0"
-bjeanes-ultraviolet  -v "0.10.3"
-lesstile             -v "~> 0.3"
-will_paginate        -v "~> 2.3"
