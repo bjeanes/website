@@ -52,7 +52,7 @@ code .Keyword {
 code .ConstantBuiltIn {
    color: #6294BE;
 }
-code, p code {
+p code, pre {
    background-color: rgba(43,43,43,0.95);
    color: #E6E1DC;
 }
@@ -72,11 +72,15 @@ code .Comment {
 }
 
 code::selection,
-code ::selection {
+code ::selection,
+pre::selection,
+pre ::selection {
   background-color: black;
 }
 
 code::-moz-selection,
-code ::-moz-selection {
+code ::-moz-selection,
+pre::-moz-selection,
+pre ::-moz-selection {
   background-color: black;
 }

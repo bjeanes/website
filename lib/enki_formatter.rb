@@ -9,34 +9,19 @@ class EnkiFormatter
         :code_formatter => CodeFormatter)
     end
     
-    def highlight_code(code, lang)
-      Uv.parse(CGI::unescapeHTML(code), "xhtml", lang.to_s.downcase, false, "railscasts")
+    def highlight_code(code, lang="plain_text", theme="railscasts")
+      Uv.parse(CGI::unescapeHTML(code), "xhtml", lang.to_s.downcase, false, theme)
+    rescue NoMethodError
+      Uv.parse(CGI::unescapeHTML(code), "xhtml", "plain_text", false, theme)
     end
   end
   
+  # Surrounds each line of code in the <pre> with <code> blocks
   CodeFormatter = lambda { |code, lang|
-      lang = lang.to_s.downcase
-    
-      begin
-        code = highlight_code(code, lang)
-        code = code.sub(/\A<pre class="[a-zA-Z_-]+">/,%Q[<code data-code-lang="#{lang}">])
-        code = code.sub(/<\/pre>\Z/,'</code>')
-      rescue
-        code = %Q{<code data-code-lang="#{lang}">#{code}</code>}
-      end
-
-      lines = (1...(code.split(/\n/).size)).to_a.join("\n")
-    
-      # TODO redo this without tables but stil have line numbers not selectable
-      # "<table><caption>#{lang.titleize}</caption><tr><th><pre>#{lines}</pre></th><td>#{code}</td></tr></table>";
-      %Q[
-          <figure>
-            <div>
-              <pre>#{lines}</pre>
-              #{code}
-            </div>
-          </figure>
-        ]
+      code = highlight_code(code, lang)
+      open, code, close = code.scan(/\A(<pre class="[^"]+">)(.*)(<\/pre>)\Z/m).flatten
+      code = code.split(/\n/).map{|line| "<code data-code-lang=\"#{lang}\">#{line}</code>"}.join("\n")
+      "#{open}#{code}#{close}"
   }
   
   # Inspired by CodeRay.for_redcloth
@@ -54,10 +39,10 @@ class EnkiFormatter
       RedCloth::Formatters::HTML.module_eval do
         def unescape(html)
           replacements = {
-            '&amp;' => '&',
+            '&amp;'  => '&',
             '&quot;' => '"',
-            '&gt;' => '>',
-            '&lt;' => '<',
+            '&gt;'   => '>',
+            '&lt;'   => '<',
           }
           html.gsub(/&(?:amp|quot|[gl]t);/) { |entity| replacements[entity] }
         end

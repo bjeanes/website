@@ -350,7 +350,7 @@ body > article {
     margin-top: 0;
   }
 
-  body > article > section > p:last-of-type {
+  body > article > section > p:last-child {
     padding-bottom: 0;
     margin-bottom: 0;
   }
@@ -384,77 +384,50 @@ body > article {
 
 
   /**************************** <CODE FORMATTING> ****************************/
-  body > article p code {
-    padding: 3px;
+  body > article p > code {
+    padding: 4px;
   }
-
-  body > article figure {
-    position: relative;
-    margin-left: -50px;
-    display: table;
-    width: 630px;
-    border-collapse: collapse;
-    table-layout:fixed;
+  
+  body > article > section pre {
+    font-size: 12px;
+    line-height: 16px;
+    counter-reset: line;
+    background: #333 !important;
+    color: white;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 1em 0 1em 20px;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
   }
-
-    body > article figure > legend {
-      display: table-caption;
-      color: #2E2E2E;
-      font-size: 18px;
-      padding-right:5px;
-      line-height: 12px;
-      text-align: right;
-      text-shadow: 1px 0px white;
-    }
-
-    body > article figure pre,
-    body > article code {
-      font-family: 'Menlo', 'Monaco', 'Anonymous Pro', 'Courier New', monospace;
-      font-size: 12px;
-      line-height: 1.6em;
-    }
-    body > article figure > div {
-      display: table-row;
-      position: relative;
-    }
-
-
-    body > article figure > div pre,
-    body > article figure > div code {
-      display: table-cell;
-      vertical-align: top;
-      border-spacing: 0;
-      padding-right: 5px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    body > article figure div > pre {
-      text-align: right;
-      width: 30px;
-      background-color: rgba(15,15,15,0.6);
-      color: #B6B6B6;
-
-      -webkit-border-top-left-radius: 5px;
-      -webkit-border-bottom-left-radius: 5px;
-      -moz-border-radius-topleft: 5px;
-      -moz-border-radius-bottomleft: 5px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-    }
-
-
-    body > article figure div > code {
-      width: 598px;
-      padding-left: 20px;
-      overflow-x: auto;
-      white-space: pre;
+  
+    body > article > section pre > code:before
+    {
+      background: #555;
+      border-right: 1px solid black;
+      color: #ccc;
+      content: counters(line, "");
+      counter-increment: line;
+      display: inline-block;
+      margin: 0 20px 0 -55px;
+      padding-right: 7px;
       position: absolute;
-      clear: both;
+      text-align: right;
+      width: 27px;
+
     }
     
-    body > article figure div > code::after {
-      clear:both;
+    body > article > section pre > code:first-child:before {
+      -webkit-border-top-left-radius: 10px;
+      -moz-border-radius-topleft: 10px;
+      padding-top: 1em;
+      margin-top: -1em;
+    }
+    body > article > section pre > code:last-child:before {
+      -webkit-border-bottom-left-radius: 10px;
+      -moz-border-radius-bottomleft: 10px;
+      padding-bottom: 1em;
     }
 
     /*************************** </CODE FORMATTING> ****************************/
