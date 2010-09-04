@@ -49,3 +49,7 @@ namespace :deploy do
     run "ln -s #{shared_path}/database.yml #{current_path}/config/database.yml"
   end
 end
+
+task :filters do
+  run("cd #{deploy_to}/current && rake reapply_filter RAILS_ENV=production")
+end
