@@ -429,6 +429,15 @@ body > article {
       -moz-border-radius-bottomleft: 10px;
       padding-bottom: 1em;
     }
+    
+    body > article > section > pre + h1,
+    body > article > section > pre + h2,
+    body > article > section > pre + h3,
+    body > article > section > pre + h4,
+    body > article > section > pre + h5,
+    body > article > section > pre + h6 {
+      margin-top: 0.8em;
+    }
 
     /*************************** </CODE FORMATTING> ****************************/
 
