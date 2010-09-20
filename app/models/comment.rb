@@ -54,6 +54,10 @@ class Comment < ActiveRecord::Base
   def approved?
     true
   end
+  
+  def open_id_user?
+    !author_url.blank? && !author_email.blank?
+  end
  
   def denormalize
     self.post.denormalize_comments_count!
@@ -108,6 +112,7 @@ class Comment < ActiveRecord::Base
   
   protected
     def validates_question_answered_correctly
+      return true if trusted_user? or open_id_user?
       answers = SPAM_TESTS[question]
       errors.add('question', "was not answered correctly") unless answers.include?(answer.to_s.downcase)
     end
