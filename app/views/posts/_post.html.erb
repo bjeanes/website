@@ -11,7 +11,7 @@
       </ul>
     </details>
   </header>
-  
+
   <aside>
     <time datetime="<%= post.published_at.xmlschema %>">
       <%= link_to(post.published_at.to_s(:html), post_path(post), :rel => "bookmark") %>
@@ -22,11 +22,11 @@
     <%= post.excerpt_html.untaint unless post.excerpt_html.blank? %>
     <%= post.body_html.untaint if @show_whole_post || post.excerpt_html.blank? %>
   </section>
-  
+
   <% if @show_whole_post %>
     <section>
       <h2 id="comments">Comments</h2>
-      
+
       <ol>
         <% @post.approved_comments.each do |comment| -%>
           <li id="comment-<%= comment.id %>">
@@ -34,18 +34,18 @@
           </li>
         <% end -%>
       </ol>
-      
+
       <% unless @comment.errors.empty? -%>
         <div class="errors">
           <h3>Comment not added!</h3>
           <ul>
             <% @comment.errors.sort_by(&:first).each do |error| -%>
               <li><%= format_comment_error(error) %></li>
-            <% end -%>  
+            <% end -%>
           </ul>
-        </div>  
+        </div>
       <% end -%>
-      
+
       <% form_for([@post, @comment]) do |form| -%>
         <div>
           <p>

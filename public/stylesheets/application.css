@@ -11,10 +11,10 @@ html, body,
 header, footer,
 article, section,
 aside, nav, a, ol,
-ul, li, h1, h2, 
+ul, li, h1, h2,
 h3, h4, h5, h6,
-code, pre, th, 
-td, table, figure, 
+code, pre, th,
+td, table, figure,
 caption, legend {
   padding: 0;
   margin: 0;
@@ -34,7 +34,6 @@ body {
   font-family: Verdana, sans-serif;
   background: #CECECE url(/images/background.png) repeat scroll 0 0;
 }
-
 
   body a {
     color: #3B5B81;
@@ -114,17 +113,17 @@ body > header {
     left: 100px;
     top: 106px;
   }
-  
+
   body > header > form {
     right: 30px;
     bottom: 16px;
   }
-  
+
     body > header > form input {
       width: 180px;
       opacity: 0.6;
     }
-    
+
     body > header > form input:hover,
     body > header > form input:active,
     body > header > form input:focus {
@@ -142,7 +141,7 @@ body > header {
     z-index: 10;
     margin-top: 1px;
     position:relative;
-    display:block;  
+    display:block;
     text-decoration: none;
     color:#292929;
     height: 25px;
@@ -202,7 +201,7 @@ body > details {
 
     max-width: 70%;
   }
-  
+
   body > details > p > a {
     text-shadow: 0 1px 0 #fff;
     text-decoration: none;
@@ -219,11 +218,11 @@ body > details {
     padding: 2px;
     margin-top: 10px;
   }
-  
+
   body > details > p:first-of-type {
     margin-top: 0;
   }
-  
+
   body > details > p:last-of-type {
     max-width: 100%;
   }
@@ -298,7 +297,7 @@ body > article {
     body > article > aside time sup,
     body > article > aside time sub{
       position: absolute;
-    } 
+    }
 
 
     body > article > aside time abbr{
@@ -374,14 +373,14 @@ body > article {
   }
 
 
-  body > article ol, 
+  body > article ol,
   body > article ul {
     padding-left: 20px;
     margin-bottom: 20px;
   }
 
 
-    body > article ol figure, 
+    body > article ol figure,
     body > article ul figure{
       margin-left: -70px;
     }
@@ -391,7 +390,7 @@ body > article {
   body > article p > code {
     padding: 4px;
   }
-  
+
   body > article > section pre {
     font-size: 12px;
     line-height: 16px;
@@ -405,7 +404,7 @@ body > article {
     word-wrap: normal;
     overflow-x: auto;
   }
-  
+
     body > article > section pre > code:before
     {
       background: #555;
@@ -421,7 +420,7 @@ body > article {
       width: 27px;
 
     }
-    
+
     body > article > section pre > code:first-child:before {
       -webkit-border-top-left-radius: 10px;
       -moz-border-radius-topleft: 10px;
@@ -433,7 +432,7 @@ body > article {
       -moz-border-radius-bottomleft: 10px;
       padding-bottom: 1em;
     }
-    
+
     body > article > section > pre + h1,
     body > article > section > pre + h2,
     body > article > section > pre + h3,
