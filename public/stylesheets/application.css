@@ -45,6 +45,10 @@ body {
     color: #5c2a0d;
   }
 
+details summary {
+  display: none
+}
+
 /******************************* <PAGE HEADER> ******************************/
 body > header {
   position: relative;

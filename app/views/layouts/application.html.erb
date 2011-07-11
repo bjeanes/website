@@ -37,14 +37,15 @@
           <% end -%>
         <% end %>
       </nav>
-      
+
       <form method="get" action="http://www.google.com/search">
         <input type="search" name="q" placeholder="Search" autosave="begenius" results="0" />
         <input type="hidden" name="sitesearch" value="<%=h config[:url] %>" />
       </form>
     </header>
-    
-    <details>    
+
+    <details open>
+      <summary />
       <img src="/images/mug.jpg" width="73" height="73" alt="Mugshot" />
       <p>Hi, I'm Bodaniel Jeanes.</p>
       <p>I'm a Ruby developer from Brisbane, Australia</p>
