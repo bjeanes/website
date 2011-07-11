@@ -2,7 +2,7 @@
   <header>
     <h1><%= link_to(post.title, post_path(post), :rel => "bookmark") %></h1>
     <details open>
-      <summary />
+      <summary></summary>
       <ul>
         <li><%= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments')) %></li>
         <% unless post.tags.empty? -%>
